@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form (onSubmit)="signup()">
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <select name="gender" id="gender" ngModel class="form-control">
+            <option value="">Select</option>
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="firstname">First Name</label>
+          <input type="text" name="firstname" id="firstname" ngModel class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="lastname">Last Name</label>
+          <input type="text" name="lastname" id="lastname" ngModel class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Date of Birth</label>
+          <select name="dayOfBirth" id="dayOfBirth" ngModel class="form-control">
+            <option value="">Day</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <select name="monthOfBirth" id="monthOfBirth" ngModel class="form-control">
+            <option value="">Month</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <select name="yearOfBirth" id="yearOfBirth" ngModel class="form-control">
+            <option value="">Year</option>
+            <option value="1">1990</option>
+            <option value="2">1989</option>
+            <option value="3">1988</option>
+            <option value="4">1987</option>
+            <option value="5">1986</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" ngModel class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" ngModel class="form-control">
+        </div>
+        <button class="btn btn-success">Create Account</button>
+      </form>
+    </div>
+  </div>
+</div>

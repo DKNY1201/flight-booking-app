@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var bookings = require('./routes/bookings');
 
 var app = express();
 
@@ -39,6 +40,7 @@ app.set('x-powered-by', false);
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/bookings', bookings);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

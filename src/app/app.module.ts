@@ -7,6 +7,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { AppComponent } from './app.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import {AppRoutingModule} from "./app-routing.module";
+import { BookingModule } from './booking/booking.module';
 import {AuthService} from "./auth/auth.service";
 
 @NgModule({
@@ -20,6 +21,7 @@ import {AuthService} from "./auth/auth.service";
     ReactiveFormsModule,
     HttpModule,
     HttpClientModule,
+    BookingModule,
     AppRoutingModule
   ],
   providers: [AuthService],

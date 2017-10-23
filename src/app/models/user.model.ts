@@ -1,7 +1,7 @@
 export class User {
   constructor(public gender: boolean,
-              public firstname: string,
-              public lastname: string,
+              public firstName: string,
+              public lastName: string,
               public dayOfBirth: number,
               public monthOfBirth: number,
               public yearOfBirth: number,

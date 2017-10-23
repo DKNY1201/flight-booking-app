@@ -1,7 +1,7 @@
 export class Booking {
     constructor(
-        public id: number,
-        public itineraryId: number,
+        public id: string,
+        public userId: string,
         public date: Date,
         public note: string) {
     }

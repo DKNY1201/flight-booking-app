@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 const mongooseUniqueValidator = require('mongoose-unique-validator');
 
 const schema = mongoose.Schema({
-    itineraryId: {type: Number, required: true },
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     date: { type: Date, required: true },
-    note: { type: String}
+    note: { type: String }
 });
 
 schema.plugin(mongooseUniqueValidator);

@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../auth.service";
 import {User} from "../../models/user.model";
 import {Router} from "@angular/router";
+import {Utils} from "../../shared/Utils";
+import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'app-signup',
@@ -11,8 +13,15 @@ import {Router} from "@angular/router";
 })
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
+  days: number[];
+  months: number[];
+  years: number[];
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) {
+    this.days = Utils.DAYS;
+    this.months = Utils.MONTHS;
+    this.years = Utils.YEARS;
+  }
 
   ngOnInit() {
     this.initForm();
@@ -33,7 +42,7 @@ export class SignupComponent implements OnInit {
       'dayOfBirth': new FormControl(dayOfBirth, Validators.required),
       'monthOfBirth': new FormControl(monthOfBirth, Validators.required),
       'yearOfBirth': new FormControl(yearOfBirth, Validators.required),
-      'email': new FormControl(email, [Validators.required, Validators.email]),
+      'email': new FormControl(email, [Validators.required, Validators.email], this.validateUniqueEmail.bind(this)),
       'password': new FormControl(null, Validators.required)
     });
   }
@@ -57,6 +66,10 @@ export class SignupComponent implements OnInit {
           this.router.navigate(['/']);
         }
       );
+  }
+
+  validateUniqueEmail(control: FormControl): Observable<any> | Promise<any> {
+    return this.authService.checkEmail(control.value);
   }
 
 }

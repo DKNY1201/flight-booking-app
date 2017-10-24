@@ -5,6 +5,10 @@
   color: red;
 }
 
+.like-a-link {
+  cursor: pointer;
+}
+
 nav {
   &.navbar {
     background-color: $main-color;

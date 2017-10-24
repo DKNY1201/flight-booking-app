@@ -30,7 +30,7 @@ import {AuthModule} from "./auth/auth.module";
     AppRoutingModule,
     AuthModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

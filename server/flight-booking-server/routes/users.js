@@ -2,13 +2,9 @@ var express = require('express');
 var router = express.Router();
 var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
+var utils = require('../shared/utils');
 
 const User = require('../models/user');
-
-/* GET users listing. */
-router.get('/', function (req, res, next) {
-  res.send('respond with a resource');
-});
 
 router.post('/', (req, res, next) => {
   let user = new User({
@@ -76,7 +72,7 @@ router.post('/signin', function(req, res, next) {
         error: {message: 'Invalid login credentials'}
       });
     }
-    var token = jwt.sign({user: user}, 'easy-fly', {expiresIn: 7200});
+    var token = jwt.sign({user: user}, utils.JWT_KEY, {expiresIn: 7200});
     res.status(200).json({
       message: 'Successfully logged in',
       token: token,

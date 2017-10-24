@@ -14,9 +14,16 @@
           <form>
             <div class="form-row">
               <div class="col-sm-2">
-                <div class="input-group">
+                <div class="input-group leaving-airport-group">
                   <div class="input-group-addon"><i class="fa fa-plane" aria-hidden="true"></i></div>
-                  <input type="text" class="form-control" placeholder="Leaving from">
+                  <input type="text" class="form-control" placeholder="Leaving from" #leavingFrom
+                         (keyup)="search(leavingFrom.value)">
+                  <div class="airport-list">
+                    <div class="airport-item" *ngFor="let leavingAirport of leavingAirports | async" (click)="onSelectAirport(leavingAirport)">
+                      {{leavingAirport.name}} [{{leavingAirport.iata}}]
+                    </div>
+                  </div>
+
                 </div>
               </div>
               <div class="col-sm-2">

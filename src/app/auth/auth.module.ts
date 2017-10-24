@@ -17,6 +17,6 @@ import {CommonModule} from "@angular/common";
     CommonModule,
     AuthRoutingModule
   ],
-  providers: [AuthService]
+  providers: []
 })
 export class AuthModule {}

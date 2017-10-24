@@ -54,9 +54,42 @@ nav {
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
-  text-align: center;
   color: #fff;
   overflow: hidden;
-  padding-top: 300px;
+  padding-top: 200px;
   padding-bottom: 200px;
+
+  .blur-background {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+  .advertisement {
+    h1 {
+      font-size: 32px;
+      color: #28a745;
+    }
+
+    h2 {
+      font-size: 24px;
+      color: #173e43;
+    }
+  }
+
+  .flight-search {
+    ul.flight-options {
+      list-style: none;
+      overflow: hidden;
+      li {
+        float: left;
+        margin-right: 10px;
+        cursor: pointer;
+
+        &.active {
+          color: #28a745;
+        }
+      }
+    }
+  }
 }

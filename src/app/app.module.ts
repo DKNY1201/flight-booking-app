@@ -12,14 +12,13 @@ import {AuthService} from "./auth/auth.service";
 import { HeaderComponent } from './core/header/header.component';
 import { HomeComponent } from './core/home/home.component';
 import { SigninComponent } from './auth/signin/signin.component';
+import {AuthModule} from "./auth/auth.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignupComponent,
     HeaderComponent,
     HomeComponent,
-    SigninComponent
   ],
   imports: [
     BrowserModule,
@@ -28,9 +27,10 @@ import { SigninComponent } from './auth/signin/signin.component';
     HttpModule,
     HttpClientModule,
     BookingModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AuthModule
   ],
-  providers: [AuthService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

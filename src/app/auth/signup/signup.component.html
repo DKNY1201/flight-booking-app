@@ -1,6 +1,7 @@
-<div class="container">
+<div class="container wrapper">
   <div class="row">
     <div class="col-sm-12">
+      <h1 class="title">Sign Up</h1>
       <form [formGroup]="signupForm" (ngSubmit)="signup()">
         <div class="form-group">
           <label for="email">Email</label>
@@ -18,6 +19,22 @@
             <span *ngIf="signupForm.get('password').errors?.required">Please enter your password</span>
           </span>
         </div>
+        <div class="form-row">
+          <div class="form-group col-sm-6">
+            <label for="firstName">First Name</label>
+            <input type="text" name="firstName" id="firstName" ngModel class="form-control" formControlName="firstName">
+            <span class="help-block" *ngIf="!signupForm.get('firstName').valid && signupForm.get('firstName').touched">
+            <span *ngIf="signupForm.get('firstName').errors?.required">Please enter your first name</span>
+          </span>
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="lastName">Last Name</label>
+            <input type="text" name="lastName" id="lastName" ngModel class="form-control" formControlName="lastName">
+            <span class="help-block" *ngIf="!signupForm.get('lastName').valid && signupForm.get('lastName').touched">
+            <span *ngIf="signupForm.get('lastName').errors?.required">Please enter your last name</span>
+          </span>
+          </div>
+        </div>
         <div class="form-group">
           <label for="gender">Gender</label>
           <select name="gender" id="gender" ngModel class="form-control" formControlName="gender">
@@ -29,29 +46,15 @@
             <span *ngIf="signupForm.get('gender').errors?.required">Please select your gender</span>
           </span>
         </div>
-        <div class="form-group">
-          <label for="firstName">First Name</label>
-          <input type="text" name="firstName" id="firstName" ngModel class="form-control" formControlName="firstName">
-          <span class="help-block" *ngIf="!signupForm.get('firstName').valid && signupForm.get('firstName').touched">
-            <span *ngIf="signupForm.get('firstName').errors?.required">Please enter your first name</span>
-          </span>
-        </div>
-        <div class="form-group">
-          <label for="lastName">Last Name</label>
-          <input type="text" name="lastName" id="lastName" ngModel class="form-control" formControlName="lastName">
-          <span class="help-block" *ngIf="!signupForm.get('lastName').valid && signupForm.get('lastName').touched">
-            <span *ngIf="signupForm.get('lastName').errors?.required">Please enter your last name</span>
-          </span>
-        </div>
         <div class="form-row">
           <div class="form-group col-sm-4">
             <label>Day of Birth</label>
             <select name="dayOfBirth" id="dayOfBirth" ngModel class="form-control" formControlName="dayOfBirth">
               <option value="">Day</option>
               <option *ngFor="let day of days" [value]="day">{{ day }}</option>
-
             </select>
-            <span class="help-block" *ngIf="!signupForm.get('dayOfBirth').valid && signupForm.get('dayOfBirth').touched">
+            <span class="help-block"
+                  *ngIf="!signupForm.get('dayOfBirth').valid && signupForm.get('dayOfBirth').touched">
               <span *ngIf="signupForm.get('dayOfBirth').errors?.required">Please select day of birth</span>
             </span>
           </div>
@@ -61,7 +64,8 @@
               <option value="">Month</option>
               <option *ngFor="let month of months" [value]="month">{{ month }}</option>
             </select>
-            <span class="help-block" *ngIf="!signupForm.get('monthOfBirth').valid && signupForm.get('monthOfBirth').touched">
+            <span class="help-block"
+                  *ngIf="!signupForm.get('monthOfBirth').valid && signupForm.get('monthOfBirth').touched">
               <span *ngIf="signupForm.get('monthOfBirth').errors?.required">Please select your month of birth</span>
             </span>
           </div>
@@ -70,14 +74,14 @@
             <select name="yearOfBirth" id="yearOfBirth" ngModel class="form-control" formControlName="yearOfBirth">
               <option value="">Year</option>
               <option *ngFor="let year of years" [value]="year">{{ year }}</option>
-
             </select>
-            <span class="help-block" *ngIf="!signupForm.get('yearOfBirth').valid && signupForm.get('yearOfBirth').touched">
+            <span class="help-block"
+                  *ngIf="!signupForm.get('yearOfBirth').valid && signupForm.get('yearOfBirth').touched">
               <span *ngIf="signupForm.get('yearOfBirth').errors?.required">Please select your year of birth</span>
             </span>
           </div>
         </div>
-        <button class="btn btn-success" type="submit" [disabled]="!signupForm.valid">Create Account</button>
+        <button class="btn btn-main" type="submit" [disabled]="!signupForm.valid">Create Account</button>
       </form>
     </div>
   </div>

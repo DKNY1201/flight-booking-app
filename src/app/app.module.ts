@@ -9,11 +9,17 @@ import { SignupComponent } from './auth/signup/signup.component';
 import {AppRoutingModule} from "./app-routing.module";
 import { BookingModule } from './booking/booking.module';
 import {AuthService} from "./auth/auth.service";
+import { HeaderComponent } from './core/header/header.component';
+import { HomeComponent } from './core/home/home.component';
+import { SigninComponent } from './auth/signin/signin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignupComponent
+    SignupComponent,
+    HeaderComponent,
+    HomeComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,6 @@ export class Itinerary {
               public leavingDate: string,
               public passenger: number,
               public price: number,
-              public flights: [Flight]) {
+              public flights: Flight[]) {
   }
 }

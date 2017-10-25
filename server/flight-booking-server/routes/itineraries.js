@@ -38,4 +38,18 @@ router.get('/search', (req, res, next) => {
   });
 });
 
+router.get('/:id', function (req, res, next) {
+    Itinerary.findById(req.params.id, (err, itinerary) => {
+        if (err) {
+            res.status(500).json(err);
+        }
+        else if (itinerary) {
+            res.json(itinerary);
+        }
+        else {
+            res.status(404).json("The itinerary does not exist.");
+        }
+    });
+});
+
 module.exports = router;

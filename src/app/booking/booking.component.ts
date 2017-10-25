@@ -1,13 +1,15 @@
 import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { BookingService } from './booking.service';
+import { SearchService } from '../search/search.service';
 import { Passenger } from '../models/passenger.model';
 import { Card } from '../models/card.model';
 import { Billing } from '../models/billing.model';
 import { Booking } from '../models/booking.model';
+import { Itinerary } from '../models/itinerary.model';
 import { Country } from '../models/country.model';
 import { State } from '../models/state.model';
 import { Utils } from '../shared/Utils';
@@ -26,9 +28,14 @@ export class BookingComponent implements OnInit {
     states: State[];
     bookingForm: FormGroup;
 
+    itinerary: Itinerary;
+
     constructor(
         private bookingService: BookingService,
-        private router: Router) {
+        private searchService: SearchService,
+        private router: Router,
+        private activatedRoute: ActivatedRoute) {
+        this.itinerary = new Itinerary('', '', '', 1, 0, []);
     }
 
     ngOnInit(): void {
@@ -62,6 +69,13 @@ export class BookingComponent implements OnInit {
             'billingPhoneCode': new FormControl('', Validators.required),
             'billingPhoneNumber': new FormControl('', Validators.required),
             'billingPhoneExt': new FormControl(),
+        });
+        this.activatedRoute.params.subscribe((params: Params) => {
+            var itineraryId = params['id'];
+            this.searchService.getItinerary(itineraryId).subscribe(itinerary => {
+                console.log(itinerary);
+                this.itinerary = itinerary;
+            });
         });
     }
 
@@ -130,8 +144,11 @@ export class BookingComponent implements OnInit {
             billing.phoneExt = form.get('billingPhoneExt').value;
 
             var booking = new Booking(passenger, card, billing);
+            booking.userId = localStorage.getItem('userId');
+            booking.itineraryId = this.itinerary['_id'];
+
             this.bookingService.addBooking(booking).subscribe(result => {
-                
+                this.router.navigate(['/booking-history']);
             });
         }
     }

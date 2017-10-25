@@ -3,9 +3,11 @@ import {HttpClient} from "@angular/common/http";
 import {Utils} from "../shared/Utils";
 import {ItemsResponse} from "../shared/ItemsResponse";
 import {Observable} from "rxjs/Observable";
+import { Itinerary } from '../models/itinerary.model';
 
 @Injectable()
 export class SearchService {
+  itineraryUrl = Utils.SERVER_ITINERARY_URL;
   itinerarySearchUrl = Utils.SERVER_ITINERARY_SEARCH_URL;
 
   constructor(private httpClient: HttpClient) {
@@ -20,5 +22,10 @@ export class SearchService {
     return this.httpClient.get<ItemsResponse>(url)
       .map(response => response.data)
       .catch((error: Response) => Observable.throw(error.json()));
+  }
+  
+  getItinerary(id: string): Observable<Itinerary> {
+      const url = `${this.itineraryUrl}/${id}`;
+      return this.httpClient.get<Itinerary>(url);
   }
 }

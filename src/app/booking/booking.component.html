@@ -7,135 +7,30 @@
       </p>
       <div class="card">
         <div class="card-body">
-          <div class="row">
+          <div class="row flight" *ngFor="let flight of itinerary.flights">
             <div class="col-3">
-              <img class="pull-left" src="assets/images/logos/AAx2.png" alt="American Airlines" />
-              American Airlines<br />
-              Flight 3656
+              <img class="pull-left" src="{{flight.airlinesLogo}}" alt="{{flight.airlines}}" />
+              {{flight.airlines}}<br />
+              Flight N/A
             </div>
             <div class="col">
               <strong>
-                7:00am<br />
-                9:13am
+                {{flight.startTime}}<br />
+                {{flight.endTime}}
               </strong>
             </div>
             <div class="col">
-              Fri, Oct 27 <br />
-              Fri, Oct 27
+              {{flight.startDate}}<br />
+              {{flight.endDate}}
             </div>
             <div class="col-4">
-              Cedar Rapids, United States (CID)<br />
-              Dallas-fort Worth, United States (DFW)
+              {{flight.leavingAirport.name}} ({{flight.leavingAirport.iata}})<br />
+              {{flight.goingAirport.name}} ({{flight.goingAirport.iata}})
             </div>
             <div class="col-2">
-              Economy<br />
-              Nonstop - 2h 13m
+              {{flight.type}}
             </div>
-            <p class="col-12 text-center flight-note">
-              Operated by Envoy Air As American Eagle <br />
-              1h 37m layover in Dallas-fort Worth (short connection)
-            </p>
           </div>
-
-          <div class="row">
-            <div class="col-3">
-              <img class="pull-left" src="assets/images/logos/KEx2.png" alt="Korean Air" />
-              Korean Air<br />
-              Flight 5032
-            </div>
-            <div class="col">
-              <strong>
-                10:50am<br />
-                3:15pm
-              </strong>
-            </div>
-            <div class="col">
-              Fri, Oct 27 <br />
-              Sat, Oct 28
-            </div>
-            <div class="col-4">
-              Dallas-fort Worth, United States (DFW)<br />
-              Seoul, Korea, Republic of (ICN)
-            </div>
-            <div class="col-2">
-              Economy<br />
-              Nonstop - 14h 25m
-            </div>
-            <p class="col-12 text-center flight-note">
-              Operated by American Airlines
-            </p>
-          </div>
-
-          <div class="row">
-            <p class="col-12 flight-note summary">
-              Total Trip Time (including layovers): 18h 15m 451232021
-            </p>
-          </div>
-
-          <div class="row">
-            <div class="col-3">
-              <img class="pull-left" src="assets/images/logos/KEx2.png" alt="Korean Air" />
-              Korean Air<br />
-              Flight 37
-            </div>
-            <div class="col">
-              <strong>
-                10:40am<br />
-                9:20am
-              </strong>
-            </div>
-            <div class="col">
-              Tue, Oct 31 <br />
-              Tue, Oct 31
-            </div>
-            <div class="col-4">
-              Seoul, Korea, Republic of (ICN)<br />
-              Chicago, United States (ORD)
-            </div>
-            <div class="col-2">
-              Economy<br />
-              Nonstop - 12h 40m
-            </div>
-            <p class="col-12 text-center flight-note">
-              4h 4m layover in Chicago (long connection)
-            </p>
-          </div>
-
-          <div class="row">
-            <div class="col-3">
-              <img class="pull-left" src="assets/images/logos/AAx2.png" alt="American Airlines" />
-              American Airlines<br />
-              Flight 3269
-            </div>
-            <div class="col">
-              <strong>
-                1:24pm<br />
-                2:24pm
-              </strong>
-            </div>
-            <div class="col">
-              Fri, Oct 27 <br />
-              Fri, Oct 27
-            </div>
-            <div class="col-4">
-              Chicago, United States (ORD)<br />
-              Cedar Rapids, United States (CID)
-            </div>
-            <div class="col-2">
-              Economy<br />
-              Nonstop - 1h
-            </div>
-            <p class="col-12 text-center flight-note">
-              Operated by Envoy Air As American Eagle
-            </p>
-          </div>
-
-          <div class="row">
-            <p class="col-12 flight-note">
-              Total Trip Time (including layovers): 17h 44m
-            </p>
-          </div>
-
         </div>
       </div>
     </div>
@@ -145,23 +40,15 @@
       <p>Confirm the price details of your round trip itinerary for all passengers.</p>
       <div class="card">
         <div class="card-body">
-          <p><strong>Cedar Rapids to Seoul</strong> Wed, Oct 25, 2017 - Wed, Nov 1, 2017</p>
+          <p><strong>{{itinerary.leavingAirportIata}} to {{itinerary.goingAirportIata}}</strong> {{itinerary.leavingDate}}</p>
           <p><strong>Ticket</strong>: Round Trip - Economy - 451232021</p>
           <p>
-            <span>Passenger:</span>
-            <span class="pull-right">$1,091.88</span>
-          </p>
-          <p>
-            <span>Air Transportation Charges:</span>
-            <span class="pull-right">$990.00</span>
-          </p>
-          <p>
-            <span>Taxes, Fees & Charges:</span>
-            <span class="pull-right">$101.88</span>
+            <strong>Number of Passengers:</strong>
+            <span class="pull-right">{{itinerary.passenger}}</span>
           </p>
           <p class="price-total">
-            <strong>Total:</strong>
-            <strong class="pull-right price-total-amount">$1,091.88</strong>
+            <strong>Price Total:</strong>
+            <strong class="pull-right price-total-amount">{{itinerary.price}}</strong>
           </p>
         </div>
       </div>

@@ -11,47 +11,52 @@
             <li class="active">Round trip</li>
             <li>One way</li>
           </ul>
-          <form>
+          <form [formGroup]="searchFlightForm" (ngSubmit)="searchFlights()">
             <div class="form-row">
-              <div class="col-sm-2">
-                <div class="input-group leaving-airport-group">
+              <div class="col-sm-3">
+                <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-plane" aria-hidden="true"></i></div>
                   <input type="text" class="form-control" placeholder="Leaving from" #leavingFrom
-                         (keyup)="search(leavingFrom.value)">
-                  <div class="airport-list">
-                    <div class="airport-item" *ngFor="let leavingAirport of leavingAirports | async" (click)="onSelectAirport(leavingAirport)">
+                         (keyup)="searchLeaving(leavingFrom.value)" [(ngModel)]="leavingAirportVal" formControlName="leavingAirport">
+                  <div class="airport-list" *ngIf="showLeavingAirportList">
+                    <div class="airport-item" *ngFor="let leavingAirport of leavingAirports | async" (click)="onSelectLeavingAirport(leavingAirport)">
                       {{leavingAirport.name}} [{{leavingAirport.iata}}]
                     </div>
                   </div>
-
                 </div>
               </div>
-              <div class="col-sm-2">
+              <div class="col-sm-3">
                 <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-plane" aria-hidden="true"></i></div>
-                  <input type="text" class="form-control" placeholder="Going to">
+                  <input type="text" class="form-control" placeholder="Going to" #goingTo
+                         (keyup)="searchGoing(goingTo.value)" [(ngModel)]="goingAirportVal" formControlName="goingAirport">
+                  <div class="airport-list" *ngIf="showGoingAirportList">
+                    <div class="airport-item" *ngFor="let goingAirport of goingAirports | async" (click)="onSelectGoingAirport(goingAirport)">
+                      {{goingAirport.name}} [{{goingAirport.iata}}]
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="col-sm-2">
                 <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></div>
-                  <input type="text" class="form-control leaving-date" placeholder="Leaving date">
+                  <input type="text" class="form-control leaving-date" placeholder="Leaving date" ngModel formControlName="leavingDate">
                 </div>
               </div>
-              <div class="col-sm-2">
-                <div class="input-group">
-                  <div class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></div>
-                  <input type="text" class="form-control" placeholder="Come back date">
-                </div>
-              </div>
+              <!--<div class="col-sm-2">-->
+                <!--<div class="input-group">-->
+                  <!--<div class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></div>-->
+                  <!--<input type="text" class="form-control" placeholder="Come back date" ngModel formControlName="comeBackDate">-->
+                <!--</div>-->
+              <!--</div>-->
               <div class="col-sm-2">
                 <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></div>
-                  <input type="text" class="form-control" placeholder="1 Passenger">
+                  <input type="text" class="form-control" placeholder="1 Passenger" ngModel formControlName="passenger">
                 </div>
               </div>
               <div class="col-sm-2">
-                <button class="btn btn-success">SEARCH</button>
+                <button class="btn btn-success btn-search-flight">SEARCH</button>
               </div>
             </div>
           </form>

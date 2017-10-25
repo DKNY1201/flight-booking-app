@@ -12,9 +12,6 @@
       <li class="nav-item">
         <a class="nav-link" href="#" routerLinkActive="active">Recent search</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/user/my-booking" routerLinkActive="active">My Booking</a>
-      </li>
       <ng-template [ngIf]="!authService.isAuthenticated()">
         <li class="nav-item">
           <a class="nav-link" routerLink="/signin" routerLinkActive="active">Sign in</a>
@@ -23,8 +20,15 @@
           <a class="nav-link" routerLink="/signup" routerLinkActive="active">Sign up</a>
         </li>
       </ng-template>
-      <li class="nav-item" *ngIf="authService.isAuthenticated()">
-        <a class="nav-link like-a-link" (click)="onLogout()">Logout</a>
+      <li class="nav-item dropdown" appDropdown *ngIf="authService.isAuthenticated()">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Hello
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/user/my-booking">My Booking</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item like-a-link" (click)="onLogout()">Logout</a>
+        </div>
       </li>
     </ul>
   </div>

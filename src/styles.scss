@@ -92,25 +92,25 @@ nav {
       }
     }
 
-    .leaving-airport-group {
-      .airport-list {
-        position: absolute;
-        border: 1px solid #ccc;
-
-        top: 37px;
-        border-top: none;
-        background: rgba(255, 255, 255, 0.7);
-        width: 150%;
-        color: #173e43;
-        overflow: scroll;
-        max-height: 350px;
-        .airport-item {
-          border-bottom: 1px dashed #000000;
-          padding: 10px 10px 5px;
-          cursor: pointer;
-        }
+    .airport-list {
+      position: absolute;
+      border: 1px solid #ccc;
+      top: 37px;
+      border-top: none;
+      background: rgba(255, 255, 255, 0.7);
+      width: 150%;
+      color: #173e43;
+      overflow: scroll;
+      max-height: 350px;
+      .airport-item {
+        border-bottom: 1px dashed #000000;
+        padding: 10px 10px 5px;
+        cursor: pointer;
       }
+    }
 
+    .btn-search-flight {
+      cursor: pointer;
     }
   }
 }

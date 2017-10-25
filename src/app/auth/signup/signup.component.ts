@@ -28,21 +28,14 @@ export class SignupComponent implements OnInit {
   }
 
   initForm() {
-    let gender = '';
-    let firstName = '';
-    let lastName = '';
-    let dayOfBirth = '';
-    let monthOfBirth = '';
-    let yearOfBirth = '';
-    let email = '';
     this.signupForm = new FormGroup({
-      'gender': new FormControl(gender, Validators.required),
-      'firstName': new FormControl(firstName, Validators.required),
-      'lastName': new FormControl(lastName, Validators.required),
-      'dayOfBirth': new FormControl(dayOfBirth, Validators.required),
-      'monthOfBirth': new FormControl(monthOfBirth, Validators.required),
-      'yearOfBirth': new FormControl(yearOfBirth, Validators.required),
-      'email': new FormControl(email, [Validators.required, Validators.email], this.validateUniqueEmail.bind(this)),
+      'gender': new FormControl(null, Validators.required),
+      'firstName': new FormControl(null, Validators.required),
+      'lastName': new FormControl(null, Validators.required),
+      'dayOfBirth': new FormControl(null, Validators.required),
+      'monthOfBirth': new FormControl(null, Validators.required),
+      'yearOfBirth': new FormControl(null, Validators.required),
+      'email': new FormControl(null, [Validators.required, Validators.email], this.validateUniqueEmail.bind(this)),
       'password': new FormControl(null, Validators.required)
     });
   }

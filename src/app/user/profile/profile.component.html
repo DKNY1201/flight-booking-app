@@ -1,0 +1,72 @@
+<div class="container wrapper">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1 class="title">My Profile</h1>
+      <form [formGroup]="profileForm" (ngSubmit)="editProfile()">
+        <div class="form-row">
+          <div class="form-group col-sm-6">
+            <label for="firstName">First Name</label>
+            <input type="text" name="firstName" id="firstName" ngModel class="form-control" formControlName="firstName">
+            <span class="help-block" *ngIf="!profileForm.get('firstName').valid && profileForm.get('firstName').touched">
+            <span *ngIf="profileForm.get('firstName').errors?.required">Please enter your first name</span>
+          </span>
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="lastName">Last Name</label>
+            <input type="text" name="lastName" id="lastName" ngModel class="form-control" formControlName="lastName">
+            <span class="help-block" *ngIf="!profileForm.get('lastName').valid && profileForm.get('lastName').touched">
+            <span *ngIf="profileForm.get('lastName').errors?.required">Please enter your last name</span>
+          </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <select name="gender" id="gender" ngModel class="form-control" formControlName="gender">
+            <option value="">Select</option>
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+          </select>
+          <span class="help-block" *ngIf="!profileForm.get('gender').valid && profileForm.get('gender').touched">
+            <span *ngIf="profileForm.get('gender').errors?.required">Please select your gender</span>
+          </span>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-sm-4">
+            <label>Day of Birth</label>
+            <select name="dayOfBirth" id="dayOfBirth" ngModel class="form-control" formControlName="dayOfBirth">
+              <option value="">Day</option>
+              <option *ngFor="let day of days" [value]="day">{{ day }}</option>
+            </select>
+            <span class="help-block"
+                  *ngIf="!profileForm.get('dayOfBirth').valid && profileForm.get('dayOfBirth').touched">
+              <span *ngIf="profileForm.get('dayOfBirth').errors?.required">Please select day of birth</span>
+            </span>
+          </div>
+          <div class="form-group col-sm-4">
+            <label>Month of Birth</label>
+            <select name="monthOfBirth" id="monthOfBirth" ngModel class="form-control" formControlName="monthOfBirth">
+              <option value="">Month</option>
+              <option *ngFor="let month of months" [value]="month">{{ month }}</option>
+            </select>
+            <span class="help-block"
+                  *ngIf="!profileForm.get('monthOfBirth').valid && profileForm.get('monthOfBirth').touched">
+              <span *ngIf="profileForm.get('monthOfBirth').errors?.required">Please select your month of birth</span>
+            </span>
+          </div>
+          <div class="form-group col-sm-4">
+            <label>Year of Birth</label>
+            <select name="yearOfBirth" id="yearOfBirth" ngModel class="form-control" formControlName="yearOfBirth">
+              <option value="">Year</option>
+              <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+            </select>
+            <span class="help-block"
+                  *ngIf="!profileForm.get('yearOfBirth').valid && profileForm.get('yearOfBirth').touched">
+              <span *ngIf="profileForm.get('yearOfBirth').errors?.required">Please select your year of birth</span>
+            </span>
+          </div>
+        </div>
+        <button class="btn btn-main" type="submit" [disabled]="!profileForm.valid">Edit profile</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -37,7 +37,8 @@
       "endTime": "9:25am",
       "airlines": "American Airlines",
       "airlinesLogo": "https://www.justfly.com/images/suppliersx2/AAx2.png",
-      "price": 240
+      "price": 240,
+      "flightCode": "Flight 1754"
     },{
       "leavingAirport": {
         "iata": "DFW",
@@ -71,7 +72,8 @@
       "endTime": "5:35pm",
       "airlines": "Korean Air",
       "airlinesLogo": "https://www.justfly.com/images/suppliersx2/KEx2.png",
-      "price": 879
+      "price": 879,
+      "flightCode": "Flight 1658"
     },{
       "leavingAirport": {
         "iata": "ICN",
@@ -105,7 +107,8 @@
       "endTime": "10:35pm",
       "airlines": "Korean Air",
       "airlinesLogo": "https://www.justfly.com/images/suppliersx2/KEx2.png",
-      "price": 300
+      "price": 300,
+      "flightCode": "Flight 1234"
     }]
   },
   {
@@ -146,7 +149,8 @@
       "endTime": "9:25am",
       "airlines": "American Airlines",
       "airlinesLogo": "https://www.justfly.com/images/suppliersx2/AAx2.png",
-      "price": 240
+      "price": 240,
+      "flightCode": "Flight 4321"
     },{
       "leavingAirport": {
         "iata": "DFW",
@@ -180,7 +184,8 @@
       "endTime": "5:35pm",
       "airlines": "Korean Air",
       "airlinesLogo": "https://www.justfly.com/images/suppliersx2/KEx2.png",
-      "price": 879
+      "price": 879,
+      "flightCode": "Flight 1111"
     },{
       "leavingAirport": {
         "iata": "ICN",
@@ -214,7 +219,8 @@
       "endTime": "10:35pm",
       "airlines": "Korean Air",
       "airlinesLogo": "https://www.justfly.com/images/suppliersx2/KEx2.png",
-      "price": 400
+      "price": 400,
+      "flightCode": "Flight 2121"
     }]
   }
 ]

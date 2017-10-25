@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../auth/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -8,11 +9,11 @@ import {AuthService} from "../../auth/auth.service";
 })
 export class HeaderComponent implements OnInit {
   username: string;
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.authService.userLoggedIn.subscribe(
-      (username: string) => {this.username = username}
+      (username: string) => this.username = username
     );
 
     // In case user refresh browser
@@ -21,5 +22,6 @@ export class HeaderComponent implements OnInit {
 
   onLogout() {
     this.authService.logout();
+    this.router.navigate(['/']);
   }
 }

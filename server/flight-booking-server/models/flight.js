@@ -32,6 +32,7 @@ const schema = mongoose.Schema({
   endDate: {type: String, required: true},
   endTime: {type: String, required: true},
   airlines: {type: String, required: true},
+  airlinesLogo: {type: String, required: true},
   price: {type: Number, required: true}
 });
 

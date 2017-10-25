@@ -14,12 +14,15 @@ import { HomeComponent } from './core/home/home.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import {AuthModule} from "./auth/auth.module";
 import {AirportService} from "./core/airport.service";
+import { SearchComponent } from './search/search.component';
+import {SearchService} from "./search/search.service";
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,7 @@ import {AirportService} from "./core/airport.service";
     AppRoutingModule,
     AuthModule
   ],
-  providers: [AuthService, AirportService],
+  providers: [AuthService, AirportService, SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

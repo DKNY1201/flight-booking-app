@@ -1,0 +1,42 @@
+<div class="container wrapper">
+  <div class="row">
+    <div class="col-sm-12">
+      <section class="itinarery" *ngFor="let itinerary of itineraries">
+        <div class="header row">
+          <div class="price col-sm-8">{{itinerary.price | currency:'USD':true:'1.2-2'}}</div>
+          <div class="col-sm-1 ml-auto">
+            <button class="btn btn-danger" (click)="onSelectItinerary(itinerary)">Select</button>
+          </div>
+        </div>
+        <div class="flights" *ngFor="let flight of itinerary.flights">
+          <div class="flight row">
+            <div class="left col-sm-3">
+              <img [src]="flight.airlinesLogo" [alt]="flight.airlines">
+              <span class="airlines">{{flight.airlines}}</span>
+            </div>
+            <div class="middle col-sm-7">
+              <div class="row">
+                <div class="time">{{flight.startTime}}</div>
+                <div class="date">{{flight.startDate}}</div>
+                <div class="city">{{flight.leavingAirport.name}} ({{flight.leavingAirport.iata}})</div>
+              </div>
+              <div class="row">
+                <div class="time">{{flight.endTime}}</div>
+                <div class="date">{{flight.endDate}}</div>
+                <div class="city">{{flight.goingAirport.name}} ({{flight.goingAirport.iata}})</div>
+              </div>
+            </div>
+            <div class="right col-sm-2">
+              <div class="type">{{flight.type}}</div>
+              <div class="miscell">
+                <i class="fa fa-television" aria-hidden="true" [ngStyle]="{'opacity': flight.hasTV ? 1 : 0.7}"></i>
+                <i class="fa fa-wifi" aria-hidden="true" [ngStyle]="{'opacity': flight.hasWifi ? 1 : 0.4}"></i>
+                <i class="fa fa-plug" aria-hidden="true" [ngStyle]="{'opacity': flight.hasCharger ? 1 : 0.7}"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

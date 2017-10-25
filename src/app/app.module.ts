@@ -16,6 +16,7 @@ import {AuthModule} from "./auth/auth.module";
 import {AirportService} from "./core/airport.service";
 import { SearchComponent } from './search/search.component';
 import {SearchService} from "./search/search.service";
+import {SharedModule} from "./shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {SearchService} from "./search/search.service";
     HttpClientModule,
     BookingModule,
     AppRoutingModule,
-    AuthModule
+    AuthModule,
+    SharedModule
   ],
   providers: [AuthService, AirportService, SearchService],
   bootstrap: [AppComponent]

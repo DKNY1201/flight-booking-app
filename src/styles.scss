@@ -9,6 +9,12 @@
   cursor: pointer;
 }
 
+.open>.dropdown-menu {
+  display: block;
+  right: 0;
+  left: auto;
+}
+
 nav {
   &.navbar {
     background-color: $main-color;
@@ -22,6 +28,26 @@ nav {
         color: #FFFFFF;;
       }
     }
+
+    .dropdown {
+      .dropdown-toggle {
+        cursor: pointer;
+      }
+
+      .dropdown-menu {
+        background-color: $main-color;
+        color: #FFFFFF;
+
+        .dropdown-item {
+          color: #FFFFFF;
+
+          &:hover {
+            background-color: transparent;
+          }
+        }
+      }
+    }
+
   }
 }
 

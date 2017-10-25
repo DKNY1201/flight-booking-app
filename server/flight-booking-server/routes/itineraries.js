@@ -6,15 +6,14 @@ const Itinerary = require('../models/itinerary');
 router.get('/search', (req, res, next) => {
   const leavingAirportIata = req.query.leavingAirportIata ? req.query.leavingAirportIata : '';
   const goingAirportIata = req.query.goingAirportIata ? req.query.goingAirportIata : '';
-  const startDate = req.query.startDate ? req.query.startDate : '';
+  const leavingDate = req.query.leavingDate ? req.query.leavingDate : '';
   const passenger = req.query.passenger ? req.query.passenger : '';
 
-  console.log(leavingAirportIata,goingAirportIata,startDate,passenger);
   Itinerary.find({
     $and: [
       {leavingAirportIata: leavingAirportIata},
       {goingAirportIata: goingAirportIata},
-      {startDate: startDate},
+      {leavingDate: leavingDate},
       {passenger: {$gte: passenger}}
     ]
   }, (err, itineraries) => {

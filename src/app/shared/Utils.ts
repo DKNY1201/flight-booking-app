@@ -14,6 +14,8 @@ export class Utils {
   static SERVER_CHECK_EMAIL_URL = Utils.SERVER_USER_URL + '/checkemail';
   static SERVER_AIRPORT_URL = Utils.SERVER_URL + '/airports';
   static SERVER_AIRPORT_SEARCH_URL = Utils.SERVER_AIRPORT_URL + '/search';
+  static SERVER_ITINERARY_URL = Utils.SERVER_URL + '/itineraries';
+  static SERVER_ITINERARY_SEARCH_URL = Utils.SERVER_ITINERARY_URL + '/search';
 
   static DAYS = Array(31).fill(0).map((x, i) => i + 1);
   static MONTHS = Array(12).fill(0).map((x, i) => i + 1);

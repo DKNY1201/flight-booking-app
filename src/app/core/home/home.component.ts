@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {AirportService} from "../airport.service";
-import {Airport} from "../../models/airport.model";
 import {Observable} from "rxjs/Observable";
 import {Subject} from "rxjs/Subject";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
+
+import {AirportService} from "../airport.service";
+import {Airport} from "../../models/airport.model";
 
 @Component({
   selector: 'app-home',
@@ -28,7 +30,7 @@ export class HomeComponent implements OnInit {
   private leavingSearchTerms = new Subject<string>();
   private goingSearchTerms = new Subject<string>();
 
-  constructor(private airportService: AirportService) { }
+  constructor(private airportService: AirportService, private router: Router) { }
 
   ngOnInit() {
     this.showLeavingAirportList = false;
@@ -91,8 +93,12 @@ export class HomeComponent implements OnInit {
   searchFlights() {
     const leavingDate = this.searchFlightForm.get('leavingDate').value;
     const passenger = this.searchFlightForm.get('passenger').value;
-
-
+    this.router.navigate(['/search'], {queryParams: {
+      leavingAirportIata: this.leavingAirportIata,
+      goingAirportIata: this.goingAirportIata,
+      leavingDate: leavingDate,
+      passenger: passenger
+    }});
   }
 
 }

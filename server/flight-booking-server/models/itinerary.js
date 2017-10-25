@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const schema = mongoose.Schema({
   leavingAirportIata: {type: String, required: true},
   goingAirportIata: {type: String, required: true},
-  startDate: {type: String, required: true},
+  leavingDate: {type: String, required: true},
   passenger: {type: Number, required: true},
   flights: [{
     leavingAirport: {
@@ -37,6 +37,7 @@ const schema = mongoose.Schema({
     endDate: {type: String, required: true},
     endTime: {type: String, required: true},
     airlines: {type: String, required: true},
+    airlinesLogo: {type: String, required: true},
     price: {type: Number, required: true}
   }]
 });

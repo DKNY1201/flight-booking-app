@@ -1,0 +1,108 @@
+[
+    {
+        "leavingAirportIata": "CID",
+        "goingAirportIata": "SGN",
+        "leavingDate": "12/17/2017",
+        "passenger": 50,
+        "flights": [{
+            "leavingAirport": {
+                "iata": "CID",
+                "lon": "-91.7003",
+                "iso": "US",
+                "status": 1,
+                "name": "The Eastern Iowa Airport",
+                "continent": "NA",
+                "type": "airport",
+                "lat": "41.889423",
+                "size": "large"
+            },
+            "goingAirport": {
+                "iata": "DFW",
+                "lon": "-97.036125",
+                "iso": "US",
+                "status": 1,
+                "name": "Dallas Fort Worth International Airport",
+                "continent": "NA",
+                "type": "airport",
+                "lat": "32.89746",
+                "size": "large"
+            },
+            "type": "economy",
+            "hasTV": 1,
+            "hasWifi": 0,
+            "hasCharger": 1,
+            "startDate": "12/17/2017",
+            "startTime": "7:00am",
+            "endDate": "12/17/2017",
+            "endTime": "9:25am",
+            "airlines": "American Airlines",
+            "price": 240
+        },{
+            "leavingAirport": {
+                "iata": "DFW",
+                "lon": "-97.036125",
+                "iso": "US",
+                "status": 1,
+                "name": "Dallas Fort Worth International Airport",
+                "continent": "NA",
+                "type": "airport",
+                "lat": "32.89746",
+                "size": "large"
+            },
+            "goingAirport": {
+                "iata": "ICN",
+                "lon": "126.45123",
+                "iso": "KR",
+                "status": 1,
+                "name": "Incheon International Airport",
+                "continent": "AS",
+                "type": "airport",
+                "lat": "37.448524",
+                "size": "large"
+            },
+            "type": "economy",
+            "hasTV": 1,
+            "hasWifi": 0,
+            "hasCharger": 1,
+            "startDate": "12/18/2017",
+            "startTime": "11:35am",
+            "endDate": "12/19/2017",
+            "endTime": "5:35pm",
+            "airlines": "Korean Air",
+            "price": 879
+        },{
+            "leavingAirport": {
+                "iata": "ICN",
+                "lon": "126.45123",
+                "iso": "KR",
+                "status": 1,
+                "name": "Incheon International Airport",
+                "continent": "AS",
+                "type": "airport",
+                "lat": "37.448524",
+                "size": "large"
+            },
+            "goingAirport": {
+                "iata": "SGN",
+                "lon": "106.662476",
+                "iso": "VN",
+                "status": 1,
+                "name": "Tan Son Nhat International Airport",
+                "continent": "AS",
+                "type": "airport",
+                "lat": "10.813045",
+                "size": "large"
+            },
+            "type": "economy",
+            "hasTV": 1,
+            "hasWifi": 0,
+            "hasCharger": 1,
+            "startDate": "12/19/2017",
+            "startTime": "7:00pm",
+            "endDate": "12/19/2017",
+            "endTime": "10:35pm",
+            "airlines": "Korean Air",
+            "price": 300
+        }]
+    }
+]

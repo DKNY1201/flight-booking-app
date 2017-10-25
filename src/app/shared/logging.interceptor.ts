@@ -10,7 +10,7 @@ export class LoggingInterceptor implements HttpInterceptor {
       event => {
         if (event instanceof HttpResponse) {
           const takenTime = Date.now() - startRequestTime;
-          console.log(`Time request for url ${req.urlWithParams} taken: ${takenTime}`);
+          console.log(`Time request for url ${req.urlWithParams} taken: ${takenTime} ms`);
         }
       }
     );

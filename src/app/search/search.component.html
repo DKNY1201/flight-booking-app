@@ -17,12 +17,12 @@
             <div class="middle col-sm-7">
               <div class="row">
                 <div class="time">{{flight.startTime}}</div>
-                <div class="date">{{flight.startDate}}</div>
+                <div class="date">{{flight.startDate | date:'yMMMd'}}</div>
                 <div class="city">{{flight.leavingAirport.name}} ({{flight.leavingAirport.iata}})</div>
               </div>
               <div class="row">
                 <div class="time">{{flight.endTime}}</div>
-                <div class="date">{{flight.endDate}}</div>
+                <div class="date">{{flight.endDate | date:'yMMMd'}}</div>
                 <div class="city">{{flight.goingAirport.name}} ({{flight.goingAirport.iata}})</div>
               </div>
             </div>

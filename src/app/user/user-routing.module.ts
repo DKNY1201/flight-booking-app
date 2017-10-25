@@ -5,7 +5,7 @@ import {ProfileComponent} from "./profile/profile.component";
 import {AuthGuard} from "../auth/auth-guard.service";
 
 const userRoutes: Routes = [
-  { path: 'user/my-profile', component: ProfileComponent, canActivate: [AuthGuard]}
+  { path: 'user/my-profile', component: ProfileComponent}
 ]
 
 @NgModule({

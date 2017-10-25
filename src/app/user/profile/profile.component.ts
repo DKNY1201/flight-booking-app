@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 import {Utils} from "../../shared/Utils";
+import {UserService} from "../user.service";
+import {AuthService} from "../../auth/auth.service";
 
 @Component({
   selector: 'app-profile',
@@ -14,7 +16,7 @@ export class ProfileComponent implements OnInit {
   months: number[];
   years: number[];
 
-  constructor() {
+  constructor(private userService: UserService, private authService: AuthService) {
     this.days = Utils.DAYS;
     this.months = Utils.MONTHS;
     this.years = Utils.YEARS;
@@ -22,6 +24,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.initForm();
+    this.getProfile();
   }
 
   initForm() {
@@ -36,7 +39,44 @@ export class ProfileComponent implements OnInit {
   }
 
   editProfile() {
+    this.userService.editProfile(
+      this.profileForm.get('firstName').value,
+      this.profileForm.get('lastName').value,
+      this.profileForm.get('gender').value,
+      this.profileForm.get('dayOfBirth').value,
+      this.profileForm.get('monthOfBirth').value,
+      this.profileForm.get('yearOfBirth').value
+    ).subscribe(
+      data => {
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('userId', data.userId);
+        localStorage.setItem('username', data.username);
 
+        this.authService.userLoggedIn.next(data.username);
+      },
+      error => console.error(error)
+    );
+  }
+
+  getProfile() {
+    this.userService.getProfile()
+      .subscribe(
+        data => {
+          console.log(data);
+          this.updateUserDataToForm(data);
+        }
+      );
+  }
+
+  updateUserDataToForm(data) {
+    this.profileForm.patchValue({
+      'gender': data.gender ? 1 : 0,
+      'firstName': data.firstName,
+      'lastName': data.lastName,
+      'dayOfBirth': data.dayOfBirth,
+      'monthOfBirth': data.monthOfBirth,
+      'yearOfBirth': data.yearOfBirth
+    });
   }
 
 }

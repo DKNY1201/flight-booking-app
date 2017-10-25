@@ -52,8 +52,8 @@ router.get('/checkemail/:email', (req, res, next) => {
   })
 });
 
-router.post('/signin', function(req, res, next) {
-  User.findOne({email: req.body.email}, function(err, user) {
+router.post('/signin', function (req, res, next) {
+  User.findOne({email: req.body.email}, function (err, user) {
     if (err) {
       return res.status(500).json({
         title: 'An error occurred',
@@ -80,6 +80,75 @@ router.post('/signin', function(req, res, next) {
       username: user.firstName + ' ' + user.lastName
     });
   });
+});
+
+router.get('/profile', (req, res, next) => {
+  const token = req.headers.authorization;
+
+  jwt.verify(token, utils.JWT_KEY, function (err, decoded) {
+    if (err) {
+      return res.status(401).json({
+        title: 'Not Authenticated',
+        error: err
+      });
+    }
+
+    const returnData = {
+      firstName: decoded.user.firstName,
+      lastName: decoded.user.lastName,
+      gender: decoded.user.gender,
+      dayOfBirth: decoded.user.dayOfBirth,
+      monthOfBirth: decoded.user.monthOfBirth,
+      yearOfBirth: decoded.user.yearOfBirth,
+    }
+
+    return res.status(200).json({
+      title: 'Decoded token data',
+      data: returnData
+    });
+  })
+});
+
+router.post('/profile', (req, res, next) => {
+  const token = req.headers.authorization;
+  jwt.verify(token, utils.JWT_KEY, function (err, decoded) {
+    if (err) {
+      return res.status(401).json({
+        title: 'Not Authenticated',
+        error: err
+      });
+    }
+
+    User.findOneAndUpdate(
+      {_id: decoded.user._id},
+      {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        gender: req.body.gender,
+        dayOfBirth: req.body.dayOfBirth,
+        monthOfBirth: req.body.monthOfBirth,
+        yearOfBirth: req.body.yearOfBirth
+      },
+      {new: true},
+      (err, user) => {
+        if (err) {
+          return res.status(500).json({
+            title: 'Something went wrong, check the error below',
+            error: err
+          });
+        }
+
+        var token = jwt.sign({user: user}, utils.JWT_KEY, {expiresIn: 7200});
+
+        return res.status(200).json({
+          title: 'Update profile successful',
+          token: token,
+          userId: user._id,
+          username: req.body.firstName + ' ' + req.body.lastName
+        });
+      }
+    )
+  })
 });
 
 module.exports = router;

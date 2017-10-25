@@ -15,7 +15,8 @@ import {UserRoutingModule} from "./user-routing.module";
   ],
   exports: [
     ProfileComponent
-  ]
+  ],
+  providers: []
 })
 export class UserModule {
 

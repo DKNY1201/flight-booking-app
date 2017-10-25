@@ -6,18 +6,18 @@ import { Country } from '../models/country.model';
 import { State } from '../models/state.model';
 
 export class Utils {
-  constructor(private httpClient: HttpClient) {}
-
   static SERVER_URL = 'http://localhost:3000';
   static SERVER_USER_URL = Utils.SERVER_URL + '/users';
   static SERVER_USER_SIGNIN_URL = Utils.SERVER_USER_URL + '/signin';
+  static SERVER_PROFILE_URL = Utils.SERVER_USER_URL + '/profile'
   static SERVER_CHECK_EMAIL_URL = Utils.SERVER_USER_URL + '/checkemail';
   static SERVER_AIRPORT_URL = Utils.SERVER_URL + '/airports';
   static SERVER_AIRPORT_SEARCH_URL = Utils.SERVER_AIRPORT_URL + '/search';
   static SERVER_ITINERARY_URL = Utils.SERVER_URL + '/itineraries';
   static SERVER_ITINERARY_SEARCH_URL = Utils.SERVER_ITINERARY_URL + '/search';
   static SERVER_BOOKING_CONFIRM_URL = Utils.SERVER_URL + '/bookings';
-  
+
+
   static DAYS = Array(31).fill(0).map((x, i) => i + 1);
   static MONTHS = Array(12).fill(0).map((x, i) => i + 1);
   static get YEARS() {

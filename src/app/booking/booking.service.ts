@@ -2,7 +2,7 @@ import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Booking } from './booking';
+import { Booking } from '../models/booking.model';
 
 @Injectable()
 export class BookingService {

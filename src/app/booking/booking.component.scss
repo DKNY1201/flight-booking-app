@@ -1,0 +1,35 @@
+h3 {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.booking-declaration {
+  margin-bottom: 32px;
+}
+
+.passenger-declaration {
+  color: #455d88;
+}
+
+.flight-note {
+  color: gray;
+  font-size: 14px;
+}
+
+.flight-note.summary {
+  border-bottom: 1px dotted gray;
+  padding-bottom: 8px;
+}
+
+.price-total {
+  border-top: 1px dotted gray;
+}
+
+.price-total-amount {
+  color: #419900;
+}
+
+.help-block.bottom {
+  margin-top: -16px;
+  margin-bottom: 16px;
+}

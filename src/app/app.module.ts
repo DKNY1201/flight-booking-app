@@ -17,6 +17,7 @@ import {SearchService} from "./search/search.service";
 import {SharedModule} from "./shared/shared.module";
 import {AuthInterceptor} from "./shared/auth.interceptor";
 import {LoggingInterceptor} from "./shared/logging.interceptor";
+import {AuthGuard} from "./auth/auth-guard.service";
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import {LoggingInterceptor} from "./shared/logging.interceptor";
     AuthService,
     AirportService,
     SearchService,
+    AuthGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

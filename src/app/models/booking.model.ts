@@ -5,6 +5,7 @@ import { Billing } from './billing.model';
 export class Booking {
     public id: string;
     public userId: string;
+    public itineraryId: string;
 
     constructor(
         public passenger: Passenger,

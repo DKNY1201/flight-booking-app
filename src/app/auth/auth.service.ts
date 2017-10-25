@@ -3,10 +3,12 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {User} from "../models/user.model";
 import {Utils} from "../shared/Utils";
 import {Observable} from "rxjs/Observable";
+import {Subject} from "rxjs/Subject";
 
 interface ItemsLoginResponse {
   token: string;
   userId: string;
+  username: string;
 }
 
 @Injectable()
@@ -14,6 +16,8 @@ export class AuthService {
   userUrl = Utils.SERVER_USER_URL;
   checkEmailUrl = Utils.SERVER_CHECK_EMAIL_URL;
   userSigninUrl = Utils.SERVER_USER_SIGNIN_URL;
+
+  userLoggedIn = new Subject();
 
   private headers = new HttpHeaders({'Content-Type': 'application/json'});
 

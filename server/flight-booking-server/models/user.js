@@ -14,4 +14,7 @@ const schema = mongoose.Schema({
 
 schema.plugin(mongooseUniqueValidator);
 
+schema.virtual('fullname')
+  .get(() => this.firstName + ' ' + this.lastName);
+
 module.exports = mongoose.model('User', schema);

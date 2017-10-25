@@ -1,1 +1,381 @@
-<p>Booking Component</p>
+<div class="container wrapper">
+  <form [formGroup]="bookingForm" (ngSubmit)="confirmBooking()">
+    <div class="booking-declaration">
+      <h3>Your Itinerary</h3>
+      <p>
+        You got our best price possible! Congratulations!
+      </p>
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-3">
+              <img class="pull-left" src="assets/images/logos/AAx2.png" alt="American Airlines" />
+              American Airlines<br />
+              Flight 3656
+            </div>
+            <div class="col">
+              <strong>
+                7:00am<br />
+                9:13am
+              </strong>
+            </div>
+            <div class="col">
+              Fri, Oct 27 <br />
+              Fri, Oct 27
+            </div>
+            <div class="col-4">
+              Cedar Rapids, United States (CID)<br />
+              Dallas-fort Worth, United States (DFW)
+            </div>
+            <div class="col-2">
+              Economy<br />
+              Nonstop - 2h 13m
+            </div>
+            <p class="col-12 text-center flight-note">
+              Operated by Envoy Air As American Eagle <br />
+              1h 37m layover in Dallas-fort Worth (short connection)
+            </p>
+          </div>
+
+          <div class="row">
+            <div class="col-3">
+              <img class="pull-left" src="assets/images/logos/KEx2.png" alt="Korean Air" />
+              Korean Air<br />
+              Flight 5032
+            </div>
+            <div class="col">
+              <strong>
+                10:50am<br />
+                3:15pm
+              </strong>
+            </div>
+            <div class="col">
+              Fri, Oct 27 <br />
+              Sat, Oct 28
+            </div>
+            <div class="col-4">
+              Dallas-fort Worth, United States (DFW)<br />
+              Seoul, Korea, Republic of (ICN)
+            </div>
+            <div class="col-2">
+              Economy<br />
+              Nonstop - 14h 25m
+            </div>
+            <p class="col-12 text-center flight-note">
+              Operated by American Airlines
+            </p>
+          </div>
+
+          <div class="row">
+            <p class="col-12 flight-note summary">
+              Total Trip Time (including layovers): 18h 15m 451232021
+            </p>
+          </div>
+
+          <div class="row">
+            <div class="col-3">
+              <img class="pull-left" src="assets/images/logos/KEx2.png" alt="Korean Air" />
+              Korean Air<br />
+              Flight 37
+            </div>
+            <div class="col">
+              <strong>
+                10:40am<br />
+                9:20am
+              </strong>
+            </div>
+            <div class="col">
+              Tue, Oct 31 <br />
+              Tue, Oct 31
+            </div>
+            <div class="col-4">
+              Seoul, Korea, Republic of (ICN)<br />
+              Chicago, United States (ORD)
+            </div>
+            <div class="col-2">
+              Economy<br />
+              Nonstop - 12h 40m
+            </div>
+            <p class="col-12 text-center flight-note">
+              4h 4m layover in Chicago (long connection)
+            </p>
+          </div>
+
+          <div class="row">
+            <div class="col-3">
+              <img class="pull-left" src="assets/images/logos/AAx2.png" alt="American Airlines" />
+              American Airlines<br />
+              Flight 3269
+            </div>
+            <div class="col">
+              <strong>
+                1:24pm<br />
+                2:24pm
+              </strong>
+            </div>
+            <div class="col">
+              Fri, Oct 27 <br />
+              Fri, Oct 27
+            </div>
+            <div class="col-4">
+              Chicago, United States (ORD)<br />
+              Cedar Rapids, United States (CID)
+            </div>
+            <div class="col-2">
+              Economy<br />
+              Nonstop - 1h
+            </div>
+            <p class="col-12 text-center flight-note">
+              Operated by Envoy Air As American Eagle
+            </p>
+          </div>
+
+          <div class="row">
+            <p class="col-12 flight-note">
+              Total Trip Time (including layovers): 17h 44m
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="booking-declaration">
+      <h3>PRICE SUMMARY</h3>
+      <p>Confirm the price details of your round trip itinerary for all passengers.</p>
+      <div class="card">
+        <div class="card-body">
+          <p><strong>Cedar Rapids to Seoul</strong> Wed, Oct 25, 2017 - Wed, Nov 1, 2017</p>
+          <p><strong>Ticket</strong>: Round Trip - Economy - 451232021</p>
+          <p>
+            <span>Passenger:</span>
+            <span class="pull-right">$1,091.88</span>
+          </p>
+          <p>
+            <span>Air Transportation Charges:</span>
+            <span class="pull-right">$990.00</span>
+          </p>
+          <p>
+            <span>Taxes, Fees & Charges:</span>
+            <span class="pull-right">$101.88</span>
+          </p>
+          <p class="price-total">
+            <strong>Total:</strong>
+            <strong class="pull-right price-total-amount">$1,091.88</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="booking-declaration">
+      <h3>TRAVELLER INFORMATION</h3>
+      <div class="alert alert-warning" role="alert">
+        IMPORTANT: Each passenger's full name must be entered as it appears on their passport or government issued photo ID. Name changes are not permitted after booking.
+      </div>
+      <p class="passenger-declaration">
+        <strong>PASSENGER 1</strong>: Adult (primary contact) - 451232021
+      </p>
+      <div class="form-row">
+        <div class="form-group col-md-2">
+          <label for="passengerGender">Gender*</label>
+          <select id="passengerGender" class="form-control" ngModel formControlName="passengerGender">
+            <option value="" selected>Select</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+          <span class="help-block" *ngIf="!bookingForm.get('passengerGender').valid && (bookingForm.get('passengerGender').touched || submitted)">
+            <span *ngIf="bookingForm.get('passengerGender').errors?.required">Please select gender.</span>
+          </span>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="passengerFirstName">First Name*</label>
+          <input type="text" class="form-control" id="firstName" ngModel formControlName="passengerFirstName" />
+          <span class="help-block" *ngIf="!bookingForm.get('passengerFirstName').valid && (bookingForm.get('passengerFirstName').touched || submitted)">
+            <span *ngIf="bookingForm.get('passengerFirstName').errors?.required">Please enter first name.</span>
+          </span>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="passengerMiddleName">Middle Name</label>
+          <input type="text" class="form-control" id="passengerMiddleName" ngModel formControlName="passengerMiddleName" />
+        </div>
+        <div class="form-group col-md-4">
+          <label for="passengerLastName">Last Name*</label>
+          <input type="text" class="form-control" id="passengerLastName" ngModel formControlName="passengerLastName" />
+          <span class="help-block" *ngIf="!bookingForm.get('passengerLastName').valid && (bookingForm.get('passengerLastName').touched || submitted)">
+            <span *ngIf="bookingForm.get('passengerLastName').errors?.required">Please enter last name.</span>
+          </span>
+        </div>
+      </div>
+      <div>
+        <label>Date of Birth*</label>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-2">
+          <select id="passengerDobMonth" class="form-control" ngModel formControlName="passengerDobMonth">
+            <option value="" selected>Month</option>
+            <option *ngFor="let month of months" [value]="month">{{ month }}</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <select id="passengerDobDay" class="form-control" ngModel formControlName="passengerDobDay">
+            <option value="" selected>Day</option>
+            <option *ngFor="let day of days" [value]="day">{{ day }}</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <select id="passengerDobYear" class="form-control" ngModel formControlName="passengerDobYear">
+            <option value="" selected>Year</option>
+            <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="help-block bottom" *ngIf="!validatePassengerDob()">
+        Please select a valid date of birth.
+      </div>
+    </div>
+
+    <div class="booking-declaration">
+      <h3>YOUR BILLING INFORMATION</h3>
+      <div class="alert alert-success" role="alert">
+        <div class="pull-right">
+          <img src="assets/images/logos/icon-cc-flag-ax.png" alt="American Express" />
+          <img src="assets/images/logos/icon-cc-flag-ca.png" alt="Master Card" />
+          <img src="assets/images/logos/icon-cc-flag-vi.png" alt="Visa" />
+        </div>
+        <strong>SAFE AND SECURE BILLING</strong> <br />
+        Your credit card information is protected by a <strong>Secure SSL Encrypted Transaction</strong>
+      </div>
+      <h4>PAYMENT INFORMATION</h4>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="cardNumber">Card Number*</label>
+          <input type="text" class="form-control" id="cardNumber" placeholder="xxxx-xxxx-xxxx-xxxx" ngModel formControlName="cardNumber" />
+        </div>
+        <div class="form-group col-md-2">
+          <label for="cardType">Card Type*</label>
+          <select id="cardType" class="form-control" ngModel formControlName="cardType">
+            <option value="" selected>Select</option>
+            <option value="American Express">American Express</option>
+            <option value="Master Card">Master Card</option>
+            <option value="Visa">Visa</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="cardExpMonth">Exp. Date*</label>
+          <select id="cardExpMonth" class="form-control" ngModel formControlName="cardExpMonth">
+            <option selected>Month</option>
+            <option *ngFor="let month of months" [value]="month">{{ month }}</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="cardExpYear">&nbsp;</label>
+          <select id="cardExpYear" class="form-control" ngModel formControlName="cardExpYear">
+            <option value="" selected>Year</option>
+            <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="cardCVV">CVV*</label>
+          <input type="text" class="form-control" id="cardCVV" ngModel formControlName="cardCVV" />
+        </div>
+      </div>
+      <div class="help-block bottom" *ngIf="!validateCreditCard()">
+        Please enter valid card information.
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="cardFirstName">First Name</label>
+          <input type="text" class="form-control" id="cardFirstName" ngModel formControlName="cardFirstName" />
+          <span class="help-block" *ngIf="!bookingForm.get('cardFirstName').valid && (bookingForm.get('cardFirstName').touched || submitted)">
+            <span *ngIf="bookingForm.get('cardFirstName').errors?.required">Please enter first name.</span>
+          </span>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="cardLastName">Last Name</label>
+          <input type="text" class="form-control" id="cardLastName" ngModel formControlName="cardLastName" />
+          <span class="help-block" *ngIf="!bookingForm.get('cardLastName').valid && (bookingForm.get('cardLastName').touched || submitted)">
+            <span *ngIf="bookingForm.get('cardLastName').errors?.required">Please enter last name.</span>
+          </span>
+        </div>
+      </div>
+      <h4>BILLING INFORMATION</h4>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="billingAddress">Billing Address*</label>
+          <input type="text" class="form-control" id="billingAddress" ngModel formControlName="billingAddress" />
+          <span class="help-block" *ngIf="!bookingForm.get('billingAddress').valid && (bookingForm.get('billingAddress').touched || submitted)">
+            <span *ngIf="bookingForm.get('billingAddress').errors?.required">Please enter a valid billing address.</span>
+          </span>
+        </div>
+        <div class="form-group col-md-3">
+          <label for="billingSuite">Apt/Suite #</label>
+          <input type="text" class="form-control" id="billingSuite" ngModel formControlName="billingSuite" />
+        </div>
+        <div class="form-group col-md-3">
+          <label for="billingCity">City*</label>
+          <input type="text" class="form-control" id="billingCity" ngModel formControlName="billingCity" />
+          <span class="help-block" *ngIf="!bookingForm.get('billingCity').valid && (bookingForm.get('billingCity').touched || submitted)">
+            <span *ngIf="bookingForm.get('billingCity').errors?.required">Please enter a valid city.</span>
+          </span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="billingCountry">Country*</label>
+          <select class="form-control" id="billingCountry" ngModel formControlName="billingCountry">
+            <option selected>Select</option>
+            <option *ngFor="let country of countries" [value]="country.code">
+              {{ country.name }}
+            </option>
+          </select>
+          <span class="help-block" *ngIf="!bookingForm.get('billingCountry').valid && (bookingForm.get('billingCountry').touched || submitted)">
+            <span *ngIf="bookingForm.get('billingCountry').errors?.required">Please select a country.</span>
+          </span>
+        </div>
+        <div class="form-group col-md-3">
+          <label for="billingState">State</label>
+          <select class="form-control" id="billingState" ngModel formControlName="billingState">
+            <option selected>Select</option>
+            <option *ngFor="let state of states" [value]="state.code">
+              {{ state.name }}
+            </option>
+          </select>
+        </div>
+        <div class="form-group col-md-3">
+          <label for="billingZipCode">Zip Code*</label>
+          <input type="text" class="form-control" id="billingZipCode" ngModel formControlName="billingZipCode" />
+          <span class="help-block" *ngIf="!bookingForm.get('billingZipCode').valid && (bookingForm.get('billingZipCode').touched || submitted)">
+            <span *ngIf="bookingForm.get('billingZipCode').errors?.required">Please enter a valid zip code.</span>
+          </span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label for="billingPhoneCode">Billing Phone Number*</label>
+          <select class="form-control" id="billingPhoneCode" ngModel formControlName="billingPhoneCode">
+            <option selected>Select</option>
+            <option *ngFor="let country of countries" [value]="country.phoneCode">
+              {{ country.name }} (+{{ country.phoneCode }})
+            </option>
+          </select>
+        </div>
+        <div class="form-group col-md-3">
+          <label>&nbsp;</label>
+          <input type="text" class="form-control" id="billingPhoneNumber" ngModel formControlName="billingPhoneNumber" />
+        </div>
+        <div class="form-group col-md-2">
+          <label for="billingPhoneExt">Ext.</label>
+          <input type="text" class="form-control" id="billingPhoneExt" ngModel formControlName="billingPhoneExt" />
+        </div>
+      </div>
+      <div class="help-block bottom" *ngIf="!validateBillingPhone()">
+        Please enter a valid phone number.
+      </div>
+    </div>
+
+    <div class="booking-declaration text-center">
+      <button type="submit" class="btn btn-success btn-lg">CONFIRM &amp; BOOK</button>
+    </div>
+  </form>
+</div>

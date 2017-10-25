@@ -18,6 +18,7 @@ import {SharedModule} from "./shared/shared.module";
 import {AuthInterceptor} from "./shared/auth.interceptor";
 import {LoggingInterceptor} from "./shared/logging.interceptor";
 import {AuthGuard} from "./auth/auth-guard.service";
+import {UserModule} from "./user/user.module";
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {AuthGuard} from "./auth/auth-guard.service";
     BookingModule,
     AppRoutingModule,
     AuthModule,
-    SharedModule
+    SharedModule,
+    UserModule
   ],
   providers: [
     AuthService,

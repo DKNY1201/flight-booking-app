@@ -4,7 +4,6 @@ import { ReactiveFormsModule } from "@angular/forms";
 
 import { BookingRoutingModule } from './booking-routing.module';
 import { BookingComponent } from './booking.component';
-import { BookingHistoryComponent } from './booking-history.component';
 import { BookingService } from './booking.service';
 
 @NgModule({
@@ -14,12 +13,10 @@ import { BookingService } from './booking.service';
         BookingRoutingModule
     ],
     exports: [
-        BookingComponent,
-        BookingHistoryComponent
+        BookingComponent
     ],
     declarations: [
-        BookingComponent,
-        BookingHistoryComponent
+        BookingComponent
     ],
     providers: [
         BookingService

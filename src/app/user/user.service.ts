@@ -2,12 +2,7 @@ import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Utils} from "../shared/Utils";
 import {ItemsResponse} from "../shared/ItemsResponse";
-
-interface ItemsLoginResponse {
-  token: string;
-  userId: string;
-  username: string;
-}
+import {ItemsLoginResponse} from "../shared/ItemsLoginResponse";
 
 @Injectable()
 export class UserService {

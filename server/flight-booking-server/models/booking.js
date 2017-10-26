@@ -3,6 +3,12 @@ const mongoose = require('mongoose');
 const schema = mongoose.Schema({
     userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     itineraryId: { type: mongoose.Schema.Types.ObjectId, ref: 'Itinerary', required: true },
+    departure: { type: String, required: true },
+    departureDate: { type: String, required: true },
+    departureTime: { type: String, required: true },
+    arrival: { type: String, required: true },
+    arrivalDate: { type: String, required: true },
+    arrivalTime: { type: String, required: true },
     passenger: {
         gender: { type: String, required: true },
         firstName: { type: String, required: true },

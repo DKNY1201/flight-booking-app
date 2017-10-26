@@ -1,0 +1,24 @@
+<div class="container wrapper">
+  <h3>Booking History</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Departure</th>
+        <th scope="col">At</th>
+        <th scope="col">Arrival</th>
+        <th scope="col">At</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let booking of bookings; let i = index">
+        <th scope="row">{{i + 1}}</th>
+        <td>{{booking.departure}}</td>
+        <td>{{booking.departureDate}} {{booking.departureTime}}</td>
+        <td>{{booking.arrival}}</td>
+        <td>{{booking.arrivalDate}} {{booking.arrivalTime}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-success btn-lg" (click)="goBack()">GO BACK</button>
+</div>

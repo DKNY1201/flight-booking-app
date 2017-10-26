@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { Booking } from '../models/booking.model';
 import { Utils } from "../shared/Utils";
@@ -11,9 +11,15 @@ export class BookingService {
 
     constructor(private http: HttpClient) { }
 
-    getBooking(id: number): Observable<Booking> {
+    getBooking(id: string): Observable<Booking> {
         const url = `${this.baseUrl}/${id}`;
         return this.http.get<Booking>(url);
+    }
+
+    getBookingsByUserId(userId: string): Observable<Booking[]> {
+        var params = new HttpParams();
+        params = params.set('userId', userId);
+        return this.http.get<Booking[]>(Utils.SERVER_BOOKING_HISTORY_URL, { params: params });
     }
 
     addBooking(booking: Booking): Observable<Booking> {
@@ -21,7 +27,7 @@ export class BookingService {
     }
 
     updateBooking(booking: Booking): Observable<Booking> {
-        const url = `${this.baseUrl}/${booking.id}`;
+        const url = `${this.baseUrl}/${booking._id}`;
         return this.http.put<Booking>(url, booking);
     }
 

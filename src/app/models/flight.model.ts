@@ -8,10 +8,10 @@ export class Flight {
               public hasWifi: boolean,
               public hasCharger: boolean,
               public startDate: string,
-              public startTime: number,
+              public startTime: string,
               public endDate: string,
-              public endTime: number,
-              public airlines: number,
+              public endTime: string,
+              public airlines: string,
               public airlinesLogo: string,
               public price: number) {
   }

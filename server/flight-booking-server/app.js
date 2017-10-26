@@ -9,6 +9,7 @@ const mongoose = require('mongoose');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var bookings = require('./routes/bookings');
+var bookingHistories = require('./routes/bookingHistories');
 var airports = require('./routes/airports');
 var itineraries = require('./routes/itineraries');
 
@@ -43,6 +44,7 @@ app.set('x-powered-by', false);
 app.use('/', index);
 app.use('/users', users);
 app.use('/bookings', bookings);
+app.use('/booking-histories', bookingHistories);
 app.use('/airports', airports);
 app.use('/itineraries', itineraries);
 

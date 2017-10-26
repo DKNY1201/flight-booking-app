@@ -146,9 +146,20 @@ export class BookingComponent implements OnInit {
             var booking = new Booking(passenger, card, billing);
             booking.userId = localStorage.getItem('userId');
             booking.itineraryId = this.itinerary['_id'];
+            var flights = this.itinerary.flights;
+            if (flights.length > 0) {
+                var departure = flights[0];
+                booking.departure = `${departure.leavingAirport.name} (${departure.leavingAirport.iata})`;
+                booking.departureDate = departure.startDate;
+                booking.departureTime = departure.startTime
+                var arrival = flights[flights.length - 1];
+                booking.arrival = `${arrival.goingAirport.name} (${arrival.goingAirport.iata})`;
+                booking.arrivalDate = arrival.endDate;
+                booking.arrivalTime = arrival.endTime;
+            }
 
             this.bookingService.addBooking(booking).subscribe(result => {
-                this.router.navigate(['/booking-history']);
+                this.router.navigate(['/user/booking-history']);
             });
         }
     }

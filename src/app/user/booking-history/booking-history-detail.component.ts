@@ -7,7 +7,6 @@ import { SearchService } from '../../search/search.service';
 import { Passenger } from '../../models/passenger.model';
 import { Booking } from '../../models/booking.model';
 import { Itinerary } from '../../models/itinerary.model';
-import { NameTitlePipe } from '../../booking/name-title.pipe';
 
 @Component({
     selector: 'app-booking-history-detail',

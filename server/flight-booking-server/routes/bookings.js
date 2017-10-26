@@ -32,6 +32,12 @@ router.post('/', function (req, res, next) {
     var booking = new Booking({
         userId: req.body.userId,
         itineraryId: req.body.itineraryId,
+        departure: req.body.departure,
+        departureDate: req.body.departureDate,
+        departureTime: req.body.departureTime,
+        arrival: req.body.arrival,
+        arrivalDate: req.body.arrivalDate,
+        arrivalTime: req.body.arrivalTime,
         passenger: req.body.passenger,
         card: req.body.card,
         billing: req.body.billing

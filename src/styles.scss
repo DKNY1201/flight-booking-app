@@ -105,6 +105,11 @@ nav {
   }
 
   .flight-search {
+
+    .input-group {
+      margin-bottom: 10px;
+    }
+
     ul.flight-options {
       list-style: none;
       overflow: hidden;

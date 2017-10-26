@@ -35,7 +35,6 @@ export class SearchComponent implements OnInit {
             }
             itinerary.price = price;
           }
-
         },
         error => console.error(error)
       );

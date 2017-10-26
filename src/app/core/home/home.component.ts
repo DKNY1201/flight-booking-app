@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {Subject} from "rxjs/Subject";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
@@ -6,13 +6,20 @@ import {Router} from "@angular/router";
 
 import {AirportService} from "../airport.service";
 import {Airport} from "../../models/airport.model";
+import {Itinerary} from "../../models/itinerary.model";
+import {Subscription} from "rxjs/Subscription";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
+  showTooltip = false;
+  featureItineraries: Itinerary[];
+
+  subscription: Subscription;
+
   leavingAirports: Observable<Airport[]>;
   goingAirports: Observable<Airport[]>;
 
@@ -55,7 +62,26 @@ export class HomeComponent implements OnInit {
         return Observable.of<Airport[]>([]);
       });
 
-      this.initForm();
+    this.initForm();
+
+    this.subscription = this.airportService.getFeatureItineraries()
+      .subscribe(
+        itineraries => {
+          for (const itinerary of itineraries) {
+            let price = 0;
+            for (const flight of itinerary.flights) {
+              price += flight.price;
+            }
+            itinerary.price = price;
+          }
+          this.featureItineraries = itineraries;
+        },
+          error => console.log(error)
+      );
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   initForm() {
@@ -101,4 +127,10 @@ export class HomeComponent implements OnInit {
     }});
   }
 
+  onSelectItinerary(featureItinerary: Itinerary) {
+    this.leavingAirportIata = featureItinerary.leavingAirportIata;
+    this.leavingAirportVal = featureItinerary.leavingAirportIata;
+    this.goingAirportIata = featureItinerary.goingAirportIata;
+    this.goingAirportVal = featureItinerary.goingAirportIata;
+  }
 }

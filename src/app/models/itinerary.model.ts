@@ -6,6 +6,8 @@ export class Itinerary {
               public leavingDate: string,
               public passenger: number,
               public price: number,
+              public image: string,
+              public isFeature: boolean,
               public flights: Flight[]) {
   }
 }

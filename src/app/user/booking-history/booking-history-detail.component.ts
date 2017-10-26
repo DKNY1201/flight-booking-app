@@ -7,6 +7,7 @@ import { SearchService } from '../../search/search.service';
 import { Passenger } from '../../models/passenger.model';
 import { Booking } from '../../models/booking.model';
 import { Itinerary } from '../../models/itinerary.model';
+import { NameTitlePipe } from '../../booking/name-title.pipe';
 
 @Component({
     selector: 'app-booking-history-detail',
@@ -34,6 +35,11 @@ export class BookingHistoryDetailComponent implements OnInit {
                 this.booking = booking;
                 this.searchService.getItinerary(booking.itineraryId).subscribe(itinerary => {
                     this.itinerary = itinerary;
+                    let price = 0;
+                    for (const flight of itinerary.flights) {
+                        price += flight.price;
+                    }
+                    itinerary.price = price;
                 });
             });
         });

@@ -4,9 +4,6 @@
   </div>
   <div class="booking-declaration" *ngIf="itinerary != null">
     <h3>ITINERARY</h3>
-    <p>
-      You got our best price possible! Congratulations!
-    </p>
     <div class="card">
       <div class="card-body">
         <div class="row flight" *ngFor="let flight of itinerary.flights">
@@ -37,21 +34,24 @@
 
   <div class="booking-declaration">
     <h3>TRAVELLER INFORMATION</h3>
-    <h4>PASSENGERS</h4>
-    <p class="passenger-declaration" *ngFor="let passenger of passengers">
-      {{ passenger.gender }}
-      {{ passenger.firstName }}
-      {{ passenger.lastName }}
+    <p class="passenger-declaration" *ngIf="booking != null">
+      <strong>
+        {{ booking.passenger.firstName }}
+        {{ booking.passenger.middleName }}
+        {{ booking.passenger.lastName }}
+      </strong>
     </p>
   </div>
 
   <div class="booking-declaration" *ngIf="itinerary != null">
     <h3>PRICE SUMMARY</h3>
     <p>
-      <strong>{{itinerary.leavingAirportIata}} to {{itinerary.goingAirportIata}}</strong>
-      <span>{{itinerary.leavingDate}}</span> 1 passenger(s).<br />
-      <strong>Total:</strong>
-      <span>{{itinerary.price}}</span>
+      <strong>Number of Passengers</strong>:
+      <strong class="price-summary">1</strong>
+    </p>
+    <p>
+      <strong>Price Total</strong>:
+      <strong class="price-summary">{{itinerary.price | currency:'USD':true:'1.2-2'}}</strong>
     </p>
   </div>
 

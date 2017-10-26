@@ -27,4 +27,8 @@ export class BookingHistoryComponent implements OnInit {
             this.bookings = bookings;
         });
     }
+
+    viewBookingDetail(booking: Booking): void {
+        this.router.navigate(['/user/my-booking', booking._id]);
+    }
 }

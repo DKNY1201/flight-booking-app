@@ -1,5 +1,6 @@
 <div class="container wrapper">
   <h3>Booking History</h3>
+  <p>List of your confirmed bookings.</p>
   <table class="table">
     <thead>
       <tr>
@@ -14,7 +15,9 @@
     <tbody>
       <tr *ngFor="let booking of bookings; let i = index">
         <td scope="row">{{i + 1}}</td>
-        <td>{{booking.confirmationCode}}</td>
+        <td>
+          <a class="booking-link" (click)="viewBookingDetail(booking)">{{booking.confirmationCode}}</a>
+        </td>
         <td>{{booking.departure}}</td>
         <td>{{booking.departureDate}} {{booking.departureTime}}</td>
         <td>{{booking.arrival}}</td>

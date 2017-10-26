@@ -1,0 +1,79 @@
+<div class="container wrapper">
+  <div class="booking-declaration" *ngIf="booking != null">
+    <h3>CONFIRMATION #{{booking.confirmationCode}}</h3>
+  </div>
+  <div class="booking-declaration" *ngIf="itinerary != null">
+    <h3>ITINERARY</h3>
+    <p>
+      You got our best price possible! Congratulations!
+    </p>
+    <div class="card">
+      <div class="card-body">
+        <div class="row flight" *ngFor="let flight of itinerary.flights">
+          <div class="col-3">
+            <img class="pull-left" src="{{flight.airlinesLogo}}" alt="{{flight.airlines}}" />
+            {{flight.airlines}}<br />
+            {{flight.flightCode}}
+          </div>
+          <div class="col">
+            {{flight.startTime}}<br />
+            {{flight.endTime}}
+          </div>
+          <div class="col">
+            {{flight.startDate}}<br />
+            {{flight.endDate}}
+          </div>
+          <div class="col-4">
+            {{flight.leavingAirport.name}} ({{flight.leavingAirport.iata}})<br />
+            {{flight.goingAirport.name}} ({{flight.goingAirport.iata}})
+          </div>
+          <div class="col-2">
+            {{flight.type}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booking-declaration">
+    <h3>TRAVELLER INFORMATION</h3>
+    <h4>PASSENGERS</h4>
+    <p class="passenger-declaration" *ngFor="let passenger of passengers">
+      {{ passenger.gender }}
+      {{ passenger.firstName }}
+      {{ passenger.lastName }}
+    </p>
+  </div>
+
+  <div class="booking-declaration" *ngIf="itinerary != null">
+    <h3>PRICE SUMMARY</h3>
+    <p>
+      <strong>{{itinerary.leavingAirportIata}} to {{itinerary.goingAirportIata}}</strong>
+      <span>{{itinerary.leavingDate}}</span> 1 passenger(s).<br />
+      <strong>Total:</strong>
+      <span>{{itinerary.price}}</span>
+    </p>
+  </div>
+
+  <div class="booking-declaration" *ngIf="booking != null">
+    <h3>BILLING INFORMATION</h3>
+    <h4>PAYMENT INFORMATION</h4>
+    <p>
+      <strong>{{booking.card.type}}</strong>:
+      <span>{{booking.card.number}}</span>
+    </p>
+    <h4>BILLING INFORMATION</h4>
+    <p>
+      <span>{{booking.billing.address}}</span>
+      <span *ngIf="booking.billing.suite"><br />{{booking.billing.suite}}</span> <br />
+      <span>{{booking.billing.city}}</span>
+      <span *ngIf="booking.billing.state">{{booking.billing.state}}</span>
+      <span>{{booking.billing.zipCode}}</span> <br />
+      <span>{{booking.billing.country}}</span>
+    </p>
+  </div>
+
+  <div class="booking-declaration">
+    <button class="btn btn-success btn-lg" (click)="goBack()">GO BACK</button>
+  </div>
+</div>

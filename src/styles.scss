@@ -16,6 +16,10 @@
   left: auto;
 }
 
+button {
+  cursor: pointer;
+}
+
 nav {
   &.navbar {
     background-color: $main-color;

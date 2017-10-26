@@ -7,9 +7,9 @@ import { BookingHistoryDetailComponent } from './booking-history/booking-history
 import {AuthGuard} from "../auth/auth-guard.service";
 
 const userRoutes: Routes = [
-  { path: 'user/my-profile', component: ProfileComponent },
-  { path: 'user/my-booking', component: BookingHistoryComponent },
-  { path: 'user/my-booking/:id', component: BookingHistoryDetailComponent }
+  { path: 'user/my-profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'user/my-booking', component: BookingHistoryComponent, canActivate: [AuthGuard] },
+  { path: 'user/my-booking/:id', component: BookingHistoryDetailComponent, canActivate: [AuthGuard] }
 ]
 
 @NgModule({

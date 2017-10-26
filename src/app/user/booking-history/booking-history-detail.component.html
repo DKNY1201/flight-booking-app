@@ -4,6 +4,13 @@
   </div>
   <div class="booking-declaration" *ngIf="itinerary != null">
     <h3>ITINERARY</h3>
+    <p *ngIf="booking != null">
+      <strong>{{booking.departure}}</strong> -&gt;
+      <strong>{{booking.arrival}}</strong><br />
+      <strong>{{booking.departureDate}} {{booking.departureTime}}</strong> -&gt;
+      <strong>{{booking.arrivalDate}} {{booking.arrivalTime}}</strong>
+      <span>(Stops: {{ itinerary.flights.length - 1 }})</span>
+</p>
     <div class="card">
       <div class="card-body">
         <div class="row flight" *ngFor="let flight of itinerary.flights">
@@ -33,7 +40,7 @@
   </div>
 
   <div class="booking-declaration">
-    <h3>TRAVELLER INFORMATION</h3>
+    <h3>PASSENGER INFORMATION</h3>
     <p class="passenger-declaration" *ngIf="booking != null">
       <strong>
         {{ booking.passenger.gender | nameTitle }}
@@ -61,7 +68,7 @@
     <h4>PAYMENT INFORMATION</h4>
     <p>
       <strong>{{booking.card.type}}</strong>:
-      <span>{{booking.card.number}}</span>
+      <span>{{booking.card.number | creditcard}}</span>
     </p>
     <h4>BILLING INFORMATION</h4>
     <p>

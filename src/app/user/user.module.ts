@@ -6,13 +6,15 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {UserRoutingModule} from "./user-routing.module";
 import { NameTitlePipe } from './booking-history/name-title.pipe';
+import { CreditCardPipe } from '../shared/creditcard.pipe';
 
 @NgModule({
   declarations: [
     ProfileComponent,
     BookingHistoryComponent,
     BookingHistoryDetailComponent,
-    NameTitlePipe
+    NameTitlePipe,
+    CreditCardPipe
   ],
   imports: [
     ReactiveFormsModule,

@@ -182,50 +182,56 @@ nav {
 
 .advantages {
   margin-top: 40px;
-  .icon {
-    color: green;
-    float: left;
-    border: 3px solid green;
-    border-radius: 50%;
-    padding: 5px;
-    margin-right: 10px;
-    .icon-wrap {
-      i {
-        font-size: 28px;
+
+  .col-sm-4 {
+    margin-bottom: 10px;
+    
+    .icon {
+      color: green;
+      float: left;
+      border: 3px solid green;
+      border-radius: 50%;
+      padding: 5px;
+      margin-right: 10px;
+      .icon-wrap {
+        i {
+          font-size: 28px;
+        }
       }
+    }
+
+    .text {
+      &>strong {
+        text-transform: uppercase;
+        font-size: 16px;
+        display: block;
+      }
+
+      span {
+        position: relative;
+
+        i {
+          color: green;
+        }
+
+        .tooltip-content {
+          position: absolute;
+          z-index: 9999;
+          background-color: #ffffff;
+          left: 0;
+          top: 30px;
+          width: 200%;
+          border: 1px solid #cccccc;
+          border-radius: 5px;
+          padding: 10px;
+          font-size: 12px;
+          box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.4);
+        }
+      }
+
     }
   }
 
-  .text {
-    &>strong {
-      text-transform: uppercase;
-      font-size: 16px;
-      display: block;
-    }
-
-    span {
-      position: relative;
-
-      i {
-        color: green;
-      }
-
-      .tooltip-content {
-        position: absolute;
-        z-index: 9999;
-        background-color: #ffffff;
-        left: 0;
-        top: 30px;
-        width: 200%;
-        border: 1px solid #cccccc;
-        border-radius: 5px;
-        padding: 10px;
-        font-size: 12px;
-        box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.4);
-      }
-    }
-
-  }
 }
 
 .suggest-flights {

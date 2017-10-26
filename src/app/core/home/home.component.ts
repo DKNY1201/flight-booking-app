@@ -117,7 +117,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   searchFlights() {
-    const leavingDate = this.searchFlightForm.get('leavingDate').value;
+    const leavingDateUnformat = this.searchFlightForm.get('leavingDate').value;
+    const date = new Date(leavingDateUnformat);
+    const leavingDate = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
     const passenger = this.searchFlightForm.get('passenger').value;
     this.router.navigate(['/search'], {queryParams: {
       leavingAirportIata: this.leavingAirportIata,

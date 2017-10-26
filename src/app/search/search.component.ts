@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {SearchService} from "./search.service";
 import {ActivatedRoute, Params, Router} from "@angular/router";
+import { Location } from '@angular/common';
+
 import {Itinerary} from "../models/itinerary.model";
 
 @Component({
@@ -13,7 +15,8 @@ export class SearchComponent implements OnInit {
 
   constructor(private searchService: SearchService,
               private route: ActivatedRoute,
-              private router: Router) {
+              private router: Router,
+              private location: Location) {
   }
 
   ngOnInit() {
@@ -44,4 +47,7 @@ export class SearchComponent implements OnInit {
     this.router.navigate(['/booking/' + itinerary._id]);
   }
 
+  goBack(): void {
+      this.location.back();
+  }
 }

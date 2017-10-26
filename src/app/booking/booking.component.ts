@@ -35,7 +35,7 @@ export class BookingComponent implements OnInit {
         private searchService: SearchService,
         private router: Router,
         private activatedRoute: ActivatedRoute) {
-        this.itinerary = new Itinerary('', '', '', 1, 0, []);
+        this.itinerary = new Itinerary('', '', '', 1, 0, '', false, []);
     }
 
     ngOnInit(): void {

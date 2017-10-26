@@ -149,3 +149,77 @@ nav {
     }
   }
 }
+
+.advantages {
+  margin-top: 40px;
+  .icon {
+    color: green;
+    float: left;
+    border: 3px solid green;
+    border-radius: 50%;
+    padding: 5px;
+    margin-right: 10px;
+    .icon-wrap {
+      i {
+        font-size: 28px;
+      }
+    }
+  }
+
+  .text {
+    &>strong {
+      text-transform: uppercase;
+      font-size: 16px;
+      display: block;
+    }
+
+    span {
+      position: relative;
+
+      i {
+        color: green;
+      }
+
+      .tooltip-content {
+        position: absolute;
+        z-index: 9999;
+        background-color: #ffffff;
+        left: 0;
+        top: 30px;
+        width: 200%;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+        padding: 10px;
+        font-size: 12px;
+        box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.4);
+      }
+    }
+
+  }
+}
+
+.suggest-flights {
+  margin-top: 40px;
+
+  .itinerary {
+    position: relative;
+    cursor: pointer;
+
+    img {
+      border-radius: 5px;
+    }
+
+    .info {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: rgba(255,255,255,0.8);
+      padding: 5px 7px;
+      border-radius: 3px;
+
+      span {
+        color: green;
+      }
+    }
+  }
+}

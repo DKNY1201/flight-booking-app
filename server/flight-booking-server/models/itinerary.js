@@ -5,6 +5,8 @@ const schema = mongoose.Schema({
   goingAirportIata: {type: String, required: true},
   leavingDate: {type: String, required: true},
   passenger: {type: Number, required: true},
+  image: {type: String, required: true},
+  isFeature: {type: Boolean, required: true},
   flights: [{
     leavingAirport: {
       iata: {type: String, required: true},
@@ -38,7 +40,8 @@ const schema = mongoose.Schema({
     endTime: {type: String, required: true},
     airlines: {type: String, required: true},
     airlinesLogo: {type: String, required: true},
-    price: {type: Number, required: true}
+    price: {type: Number, required: true},
+    flightCode: {type: String, required: true}
   }]
 });
 

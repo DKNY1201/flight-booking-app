@@ -26,7 +26,7 @@ import {UserService} from "./user/user.service";
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    SearchComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

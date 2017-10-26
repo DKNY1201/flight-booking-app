@@ -76,10 +76,14 @@
         <span>Book with confidence
           <i class="fa fa-info-circle" (mousemove)="showTooltip = true" (mouseleave)="showTooltip = false"></i>
           <div class="tooltip-content" id="bpg-tooltip-content" *ngIf="showTooltip">
-                <strong>Extended Cancellation Policy - Book with confidence.</strong> <br><br>
-                You always have the option to cancel within 24 hours of purchase without EasyFly’s standard cancellation fees! Simply opt in to the Extended cancellation policy during checkout, for $19.99 per passenger.<br><br>
-                To claim a refund for the fare difference or a full refund, email us at <a href="mailto:guarantee@easyfly.com">guarantee@easyfly.com</a> or call us toll free at <a href="tel:1-800-717-5015">1-800-717-5015</a>. For more details, please check our terms and conditions.
-            </div>
+            <strong>Extended Cancellation Policy - Book with confidence.</strong> <br><br>
+            You always have the option to cancel within 24 hours of purchase without EasyFly’s
+            standard cancellation fees! Simply opt in to the Extended cancellation policy during checkout,
+            for $19.99 per passenger.<br><br>
+            To claim a refund for the fare difference or a full refund, email us at <a href="mailto:guarantee@easyfly.com">
+            guarantee@easyfly.com</a> or call us toll free at <a href="tel:1-800-717-5015">1-800-717-5015</a>.
+            For more details, please check our terms and conditions.
+          </div>
         </span>
       </div>
     </div>
@@ -122,7 +126,10 @@
       </div>
     </div>
     <div class="col-sm-6">
-      <div class="itinerary" *ngFor="let featureItinerary of featureItineraries; let i = index" [ngStyle]="{'margin-bottom': i <= 3 ? 0 : '20px'}">
+      <div class="itinerary"
+           *ngFor="let featureItinerary of featureItineraries; let i = index"
+           [ngStyle]="{'margin-bottom': i <= 3 ? 0 : '20px'}"
+           (click)="onSelectItinerary(featureItinerary)">
         <ng-template [ngIf]="i > 3">
           <img [src]="featureItinerary.image" [alt]="featureItinerary.leavingAirportIata" class="embed-responsive">
           <div class="info">

@@ -246,7 +246,7 @@
         "lat": "41.532433",
         "size": "large"
       },
-      "leavingAirport": {
+      "goingAirport": {
         "iata": "ICN",
         "lon": "126.45123",
         "iso": "KR",
@@ -325,7 +325,7 @@
         "lat": "41.532433",
         "size": "large"
       },
-      "leavingAirport": {
+      "goingAirport": {
         "iata": "ICN",
         "lon": "126.45123",
         "iso": "KR",
@@ -404,7 +404,7 @@
         "lat": "41.532433",
         "size": "large"
       },
-      "leavingAirport": {
+      "goingAirport": {
         "iata": "ICN",
         "lon": "126.45123",
         "iso": "KR",
@@ -481,7 +481,7 @@
         "lat": "41.532433",
         "size": "large"
       },
-      "leavingAirport": {
+      "goingAirport": {
         "iata": "ICN",
         "lon": "126.45123",
         "iso": "KR",

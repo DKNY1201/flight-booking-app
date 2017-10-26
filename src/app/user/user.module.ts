@@ -5,12 +5,14 @@ import { BookingHistoryDetailComponent } from './booking-history/booking-history
 import {ReactiveFormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {UserRoutingModule} from "./user-routing.module";
+import { NameTitlePipe } from './booking-history/name-title.pipe';
 
 @NgModule({
   declarations: [
     ProfileComponent,
     BookingHistoryComponent,
-    BookingHistoryDetailComponent
+    BookingHistoryDetailComponent,
+    NameTitlePipe
   ],
   imports: [
     ReactiveFormsModule,

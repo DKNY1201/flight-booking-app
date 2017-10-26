@@ -36,6 +36,7 @@
     <h3>TRAVELLER INFORMATION</h3>
     <p class="passenger-declaration" *ngIf="booking != null">
       <strong>
+        {{ booking.passenger.gender | nameTitle }}
         {{ booking.passenger.firstName }}
         {{ booking.passenger.middleName }}
         {{ booking.passenger.lastName }}

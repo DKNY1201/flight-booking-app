@@ -24,6 +24,7 @@ export class BookingComponent implements OnInit {
     days: number[];
     months: number[];
     years: number[];
+    yearsCreditCard: number[];
     countries: Country[];
     states: State[];
     bookingForm: FormGroup;
@@ -46,6 +47,7 @@ export class BookingComponent implements OnInit {
         this.days = Utils.DAYS;
         this.months = Utils.MONTHS;
         this.years = Utils.YEARS;
+        this.yearsCreditCard = Utils.YEARS_CREDIT_CARD;
         this.countries = Utils.COUNTRIES;
         this.states = Utils.STATES;
         this.bookingForm = new FormGroup({
@@ -76,6 +78,11 @@ export class BookingComponent implements OnInit {
         this.activatedRoute.params.subscribe((params: Params) => {
             var itineraryId = params['id'];
             this.searchService.getItinerary(itineraryId).subscribe(itinerary => {
+                let price = 0;
+                for (const flight of itinerary.flights) {
+                  price += flight.price;
+                }
+                itinerary.price = price;
                 this.itinerary = itinerary;
             });
         });

@@ -118,18 +118,18 @@
 
     <div class="booking-declaration">
       <h3>PRICE SUMMARY</h3>
-      <p>Confirm the price details of your round trip itinerary for all passengers.</p>
+      <p>Confirm the price details of your itinerary for all passengers.</p>
       <div class="card">
         <div class="card-body">
           <p><strong>{{itinerary.leavingAirportIata}} to {{itinerary.goingAirportIata}}</strong> {{itinerary.leavingDate}}</p>
-          <p><strong>Ticket</strong>: Round Trip - Economy - 451232021</p>
+          <p><strong>Ticket</strong>: One way - Economy - 451232021</p>
           <p>
             <strong>Number of Passengers:</strong>
             <span class="pull-right">{{itinerary.passenger}}</span>
           </p>
           <p class="price-total">
             <strong>Price Total:</strong>
-            <strong class="pull-right price-total-amount">{{itinerary.price}}</strong>
+            <strong class="pull-right price-total-amount">{{itinerary.price | currency:'USD':true:'1.2-2'}}</strong>
           </p>
         </div>
       </div>
@@ -172,7 +172,7 @@
           <label for="cardExpYear">&nbsp;</label>
           <select id="cardExpYear" class="form-control" ngModel formControlName="cardExpYear">
             <option value="" selected>Year</option>
-            <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+            <option *ngFor="let year of yearsCreditCard" [value]="year">{{ year }}</option>
           </select>
         </div>
         <div class="form-group col-md-2">

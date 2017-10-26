@@ -1,3 +1,4 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "assets/scss/variables";
 @import '../node_modules/bootstrap/scss/bootstrap';
 
@@ -137,6 +138,26 @@ nav {
 
     .btn-search-flight {
       cursor: pointer;
+    }
+
+    .mat-datepicker-toggle {
+      float: left;
+      color: #495057;
+      text-align: center;
+      background-color: #e9ecef;
+      border: 1px solid #ced4da;
+      border-radius: 0.25rem;
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+
+      .mat-icon-button {
+        width: 36px;
+        height: 36px;
+      }
+    }
+
+    .leaving-date {
+      width: 80%;
     }
   }
 }

@@ -20,6 +20,8 @@ import {LoggingInterceptor} from "./shared/logging.interceptor";
 import {AuthGuard} from "./auth/auth-guard.service";
 import {UserModule} from "./user/user.module";
 import {UserService} from "./user/user.service";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatButtonModule, MatCheckboxModule, MatDatepickerModule, MatNativeDateModule} from "@angular/material";
 
 @NgModule({
   declarations: [
@@ -38,7 +40,12 @@ import {UserService} from "./user/user.service";
     AppRoutingModule,
     AuthModule,
     SharedModule,
-    UserModule
+    UserModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     AuthService,

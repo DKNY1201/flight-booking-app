@@ -39,8 +39,13 @@
               </div>
               <div class="col-sm-2">
                 <div class="input-group">
-                  <div class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></div>
-                  <input type="text" class="form-control leaving-date" placeholder="Leaving date" ngModel formControlName="leavingDate">
+                  <!--<div class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></div>-->
+                  <!--<input type="text" class="form-control leaving-date" placeholder="Leaving date" ngModel formControlName="leavingDate">-->
+                  <mat-form-field>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <input class="form-control leaving-date" matInput [matDatepicker]="picker" placeholder="Leaving date" ngModel formControlName="leavingDate">
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
                 </div>
               </div>
               <!--<div class="col-sm-2">-->

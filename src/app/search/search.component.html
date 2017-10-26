@@ -10,7 +10,7 @@
               <h4>
                 {{ itinerary.leavingAirportIata }} -&gt;
                 {{ itinerary.goingAirportIata }}
-                (Stops: {{ itinerary.flights.length }}, Available Tickets: {{itinerary.passenger}}) Starting At
+                (Stops: {{ itinerary.flights.length - 1 }}, Available Tickets: {{itinerary.passenger}}) Starting At
                 {{ itinerary.price | currency:'USD':true:'1.2-2' }}
               </h4>
             </div>

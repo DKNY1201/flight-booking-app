@@ -4,12 +4,7 @@ import {User} from "../models/user.model";
 import {Utils} from "../shared/Utils";
 import {Observable} from "rxjs/Observable";
 import {Subject} from "rxjs/Subject";
-
-interface ItemsLoginResponse {
-  token: string;
-  userId: string;
-  username: string;
-}
+import {ItemsLoginResponse} from "../shared/ItemsLoginResponse";
 
 @Injectable()
 export class AuthService {

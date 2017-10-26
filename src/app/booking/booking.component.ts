@@ -24,6 +24,7 @@ export class BookingComponent implements OnInit {
     days: number[];
     months: number[];
     years: number[];
+    yearsCreditCard: number[];
     countries: Country[];
     states: State[];
     bookingForm: FormGroup;
@@ -46,6 +47,7 @@ export class BookingComponent implements OnInit {
         this.days = Utils.DAYS;
         this.months = Utils.MONTHS;
         this.years = Utils.YEARS;
+        this.yearsCreditCard = Utils.YEARS_CREDIT_CARD;
         this.countries = Utils.COUNTRIES;
         this.states = Utils.STATES;
         this.bookingForm = new FormGroup({

@@ -31,6 +31,18 @@ export class Utils {
 
     return years;
   }
+
+  static get YEARS_CREDIT_CARD() {
+    const startYear = 2018;
+    const endYear = 2050;
+    const years = [];
+    for (let i = startYear; i <= endYear; i++) {
+      years.push(i);
+    }
+
+    return years;
+  }
+
   static COUNTRIES = [
       new Country('AD', 'Andorra', '376'),
       new Country('AG', 'Antigua and Barbuda', '1'),

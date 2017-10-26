@@ -76,6 +76,11 @@ export class BookingComponent implements OnInit {
         this.activatedRoute.params.subscribe((params: Params) => {
             var itineraryId = params['id'];
             this.searchService.getItinerary(itineraryId).subscribe(itinerary => {
+                let price = 0;
+                for (const flight of itinerary.flights) {
+                  price += flight.price;
+                }
+                itinerary.price = price;
                 this.itinerary = itinerary;
             });
         });

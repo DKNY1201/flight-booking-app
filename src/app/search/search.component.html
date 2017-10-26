@@ -1,7 +1,13 @@
 <div class="container wrapper">
-  <h3>Available Flights</h3>
-  <p>EasyFly.com offers you with better prices than ever.</p>
-  <div class="row">
+  <h3>Available Itineraries</h3>
+  <p><strong>EasyFly.com</strong> offers you with better prices than ever.</p>
+  <div *ngIf="itineraries == null || itineraries.length == 0" class="card no-itineraries">
+    <div class="card-body">
+      <p>There are no available itineraries matching your search criteria.</p>
+      <p><button class="btn btn-success btn-lg">GO BACK</button></p>
+    </div>
+  </div>
+  <div class="row" *ngIf="itineraries != null && itineraries.length > 0">
     <div class="col-sm-12">
       <section class="card itinerary" *ngFor="let itinerary of itineraries">
         <div class="card-body">

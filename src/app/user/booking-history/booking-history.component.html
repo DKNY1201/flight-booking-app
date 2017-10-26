@@ -4,6 +4,7 @@
     <thead>
       <tr>
         <th scope="col">#</th>
+        <th scope="col">Confirmation #</th>
         <th scope="col">Departure</th>
         <th scope="col">At</th>
         <th scope="col">Arrival</th>
@@ -12,7 +13,8 @@
     </thead>
     <tbody>
       <tr *ngFor="let booking of bookings; let i = index">
-        <th scope="row">{{i + 1}}</th>
+        <td scope="row">{{i + 1}}</td>
+        <td>{{booking.confirmationCode}}</td>
         <td>{{booking.departure}}</td>
         <td>{{booking.departureDate}} {{booking.departureTime}}</td>
         <td>{{booking.arrival}}</td>
@@ -20,5 +22,4 @@
       </tr>
     </tbody>
   </table>
-  <button class="btn btn-success btn-lg" (click)="goBack()">GO BACK</button>
 </div>

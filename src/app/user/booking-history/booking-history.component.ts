@@ -27,8 +27,4 @@ export class BookingHistoryComponent implements OnInit {
             this.bookings = bookings;
         });
     }
-
-    goBack(): void {
-        this.location.back();
-    }
 }

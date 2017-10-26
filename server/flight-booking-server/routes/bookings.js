@@ -40,7 +40,8 @@ router.post('/', function (req, res, next) {
         arrivalTime: req.body.arrivalTime,
         passenger: req.body.passenger,
         card: req.body.card,
-        billing: req.body.billing
+        billing: req.body.billing,
+        confirmationCode: `EF${new Date().getTime()}`
     });
     save(res, booking);
 });

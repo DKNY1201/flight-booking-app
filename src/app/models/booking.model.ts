@@ -12,6 +12,7 @@ export class Booking {
     public arrival: string;
     public arrivalDate: string;
     public arrivalTime: string;
+    public confirmationCode: string;
 
     constructor(
         public passenger: Passenger,

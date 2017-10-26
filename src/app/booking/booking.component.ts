@@ -29,6 +29,8 @@ export class BookingComponent implements OnInit {
     bookingForm: FormGroup;
 
     itinerary: Itinerary;
+    passenger: Passenger;
+    passengers: Passenger[];
 
     constructor(
         private bookingService: BookingService,
@@ -36,6 +38,7 @@ export class BookingComponent implements OnInit {
         private router: Router,
         private activatedRoute: ActivatedRoute) {
         this.itinerary = new Itinerary('', '', '', 1, 0, '', false, []);
+        this.passengers = [];
     }
 
     ngOnInit(): void {
@@ -73,10 +76,19 @@ export class BookingComponent implements OnInit {
         this.activatedRoute.params.subscribe((params: Params) => {
             var itineraryId = params['id'];
             this.searchService.getItinerary(itineraryId).subscribe(itinerary => {
-                console.log(itinerary);
                 this.itinerary = itinerary;
             });
         });
+    }
+
+    addPassenger(): void {
+        this.passenger = new Passenger();
+    }
+    cancelPassenger(): void {
+        this.passenger = null;
+    }
+    savePassenger(): void {
+
     }
 
     validatePassengerDob(): boolean {
@@ -159,7 +171,7 @@ export class BookingComponent implements OnInit {
             }
 
             this.bookingService.addBooking(booking).subscribe(result => {
-                this.router.navigate(['/user/booking-history']);
+                this.router.navigate(['/user/my-booking']);
             });
         }
     }

@@ -11,13 +11,11 @@
             <div class="col-3">
               <img class="pull-left" src="{{flight.airlinesLogo}}" alt="{{flight.airlines}}" />
               {{flight.airlines}}<br />
-              Flight N/A
+              {{flight.flightCode}}
             </div>
             <div class="col">
-              <strong>
-                {{flight.startTime}}<br />
-                {{flight.endTime}}
-              </strong>
+              {{flight.startTime}}<br />
+              {{flight.endTime}}
             </div>
             <div class="col">
               {{flight.startDate}}<br />
@@ -32,6 +30,89 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <div class="booking-declaration">
+      <h3>TRAVELLER INFORMATION</h3>
+      <p class="alert alert-warning" role="alert">
+        IMPORTANT: Each passenger's full name must be entered as it appears on their passport or government issued photo ID. Name changes are not permitted after booking.
+      </p>
+      <h4>PASSENGERS</h4>
+      <p *ngIf="passengers.length == 0">
+        No passengers have been added. Please add at least one passenger.
+      </p>
+      <p class="passenger-declaration" *ngFor="let passenger of passengers">
+        {{ passenger.gender | nameTitle }}
+        {{ passenger.firstName }}
+        {{ passenger.lastName }}
+      </p>
+      <!--<p>
+        <button type="button" class="btn btn-success" *ngIf="passenger == null" (click)="addPassenger()">ADD PASSENGER</button>
+      </p>-->
+      <div><!-- *ngIf="passenger != null"-->
+        <div class="form-row">
+          <div class="form-group col-md-2">
+            <label for="passengerGender">Gender*</label>
+            <select id="passengerGender" class="form-control" ngModel formControlName="passengerGender">
+              <option value="" selected>Select</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+            <span class="help-block" *ngIf="!bookingForm.get('passengerGender').valid && (bookingForm.get('passengerGender').touched || submitted)">
+              <span *ngIf="bookingForm.get('passengerGender').errors?.required">Please select gender.</span>
+            </span>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="passengerFirstName">First Name*</label>
+            <input type="text" class="form-control" id="firstName" ngModel formControlName="passengerFirstName" />
+            <span class="help-block" *ngIf="!bookingForm.get('passengerFirstName').valid && (bookingForm.get('passengerFirstName').touched || submitted)">
+              <span *ngIf="bookingForm.get('passengerFirstName').errors?.required">Please enter first name.</span>
+            </span>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="passengerMiddleName">Middle Name</label>
+            <input type="text" class="form-control" id="passengerMiddleName" ngModel formControlName="passengerMiddleName" />
+          </div>
+          <div class="form-group col-md-4">
+            <label for="passengerLastName">Last Name*</label>
+            <input type="text" class="form-control" id="passengerLastName" ngModel formControlName="passengerLastName" />
+            <span class="help-block" *ngIf="!bookingForm.get('passengerLastName').valid && (bookingForm.get('passengerLastName').touched || submitted)">
+              <span *ngIf="bookingForm.get('passengerLastName').errors?.required">Please enter last name.</span>
+            </span>
+          </div>
+        </div>
+        <div>
+          <label>Date of Birth*</label>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-2">
+            <select id="passengerDobMonth" class="form-control" ngModel formControlName="passengerDobMonth">
+              <option value="" selected>Month</option>
+              <option *ngFor="let month of months" [value]="month">{{ month }}</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <select id="passengerDobDay" class="form-control" ngModel formControlName="passengerDobDay">
+              <option value="" selected>Day</option>
+              <option *ngFor="let day of days" [value]="day">{{ day }}</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <select id="passengerDobYear" class="form-control" ngModel formControlName="passengerDobYear">
+              <option value="" selected>Year</option>
+              <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+            </select>
+          </div>
+        </div>
+        <div class="help-block bottom" *ngIf="!validatePassengerDob()">
+          Please select a valid date of birth.
+        </div>
+        <!--<p>
+          <button type="button" class="btn btn-danger" (click)="cancelPassenger()">CANCEL</button>
+          <button type="button" class="btn btn-success" (click)="savePassenger()">SAVE</button>
+        </p>-->
       </div>
     </div>
 
@@ -51,74 +132,6 @@
             <strong class="pull-right price-total-amount">{{itinerary.price}}</strong>
           </p>
         </div>
-      </div>
-    </div>
-
-    <div class="booking-declaration">
-      <h3>TRAVELLER INFORMATION</h3>
-      <div class="alert alert-warning" role="alert">
-        IMPORTANT: Each passenger's full name must be entered as it appears on their passport or government issued photo ID. Name changes are not permitted after booking.
-      </div>
-      <p class="passenger-declaration">
-        <strong>PASSENGER 1</strong>: Adult (primary contact) - 451232021
-      </p>
-      <div class="form-row">
-        <div class="form-group col-md-2">
-          <label for="passengerGender">Gender*</label>
-          <select id="passengerGender" class="form-control" ngModel formControlName="passengerGender">
-            <option value="" selected>Select</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Other">Other</option>
-          </select>
-          <span class="help-block" *ngIf="!bookingForm.get('passengerGender').valid && (bookingForm.get('passengerGender').touched || submitted)">
-            <span *ngIf="bookingForm.get('passengerGender').errors?.required">Please select gender.</span>
-          </span>
-        </div>
-        <div class="form-group col-md-4">
-          <label for="passengerFirstName">First Name*</label>
-          <input type="text" class="form-control" id="firstName" ngModel formControlName="passengerFirstName" />
-          <span class="help-block" *ngIf="!bookingForm.get('passengerFirstName').valid && (bookingForm.get('passengerFirstName').touched || submitted)">
-            <span *ngIf="bookingForm.get('passengerFirstName').errors?.required">Please enter first name.</span>
-          </span>
-        </div>
-        <div class="form-group col-md-2">
-          <label for="passengerMiddleName">Middle Name</label>
-          <input type="text" class="form-control" id="passengerMiddleName" ngModel formControlName="passengerMiddleName" />
-        </div>
-        <div class="form-group col-md-4">
-          <label for="passengerLastName">Last Name*</label>
-          <input type="text" class="form-control" id="passengerLastName" ngModel formControlName="passengerLastName" />
-          <span class="help-block" *ngIf="!bookingForm.get('passengerLastName').valid && (bookingForm.get('passengerLastName').touched || submitted)">
-            <span *ngIf="bookingForm.get('passengerLastName').errors?.required">Please enter last name.</span>
-          </span>
-        </div>
-      </div>
-      <div>
-        <label>Date of Birth*</label>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-2">
-          <select id="passengerDobMonth" class="form-control" ngModel formControlName="passengerDobMonth">
-            <option value="" selected>Month</option>
-            <option *ngFor="let month of months" [value]="month">{{ month }}</option>
-          </select>
-        </div>
-        <div class="form-group col-md-2">
-          <select id="passengerDobDay" class="form-control" ngModel formControlName="passengerDobDay">
-            <option value="" selected>Day</option>
-            <option *ngFor="let day of days" [value]="day">{{ day }}</option>
-          </select>
-        </div>
-        <div class="form-group col-md-2">
-          <select id="passengerDobYear" class="form-control" ngModel formControlName="passengerDobYear">
-            <option value="" selected>Year</option>
-            <option *ngFor="let year of years" [value]="year">{{ year }}</option>
-          </select>
-        </div>
-      </div>
-      <div class="help-block bottom" *ngIf="!validatePassengerDob()">
-        Please select a valid date of birth.
       </div>
     </div>
 

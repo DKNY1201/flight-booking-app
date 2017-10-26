@@ -1,66 +1,67 @@
 <div class="container wrapper">
   <h3>Available Itineraries</h3>
-  <p><strong>EasyFly.com</strong> offers you with better prices than ever.</p>
   <div class="row">
-    <div *ngIf="itineraries == null || itineraries.length == 0" class="col-sm-12 card no-itineraries">
-      <div class="card-body">
-        <p>There are no available itineraries matching your search criteria.</p>
-        <p><button class="btn btn-success btn-lg" (click)="goBack()">GO BACK</button></p>
-      </div>
-    </div>
-  </div>
-  <div class="row" *ngIf="itineraries != null && itineraries.length > 0">
     <div class="col-sm-12">
-      <section class="card itinerary" *ngFor="let itinerary of itineraries">
+      <p><strong>EasyFly.com</strong> offers you with better prices than ever.</p>
+      <div *ngIf="itineraries == null || itineraries.length == 0" class="card no-itineraries">
         <div class="card-body">
-          <div class="header row">
-            <div class="col-sm-10 price">
-              <h4>
-                {{ itinerary.leavingAirportIata }} -&gt;
-                {{ itinerary.goingAirportIata }}
-                (Stops: {{ itinerary.flights.length - 1 }}, Available Tickets: {{itinerary.passenger}}) Starting At
-                {{ itinerary.price | currency:'USD':true:'1.2-2' }}
-              </h4>
-            </div>
-            <div class="col-sm-2 ml-auto">
-              <button class="btn btn-danger pull-right" (click)="onSelectItinerary(itinerary)">BOOK NOW</button>
-            </div>
-          </div>
-          <div class="flights" *ngFor="let flight of itinerary.flights">
-            <div class="flight row">
-              <div class="left col-sm-3">
-                <img [src]="flight.airlinesLogo" [alt]="flight.airlines" class="pull-left">
-                <span class="airlines">
-                  {{ flight.airlines }}<br />
-                  {{ flight.flightCode }}
-                </span>
+          <p>There are no available itineraries matching your search criteria.</p>
+          <p><button class="btn btn-success btn-lg" (click)="goBack()">GO BACK</button></p>
+        </div>
+      </div>
+      <div *ngIf="itineraries != null && itineraries.length > 0">
+        <section class="card itinerary" *ngFor="let itinerary of itineraries">
+          <div class="card-body">
+            <div class="header row">
+              <div class="col-sm-10 price">
+                <h4>
+                  {{ itinerary.leavingAirportIata }} -&gt;
+                  {{ itinerary.goingAirportIata }}
+                  (Stops: {{ itinerary.flights.length - 1 }}, Available Tickets: {{itinerary.passenger}}) Starting At
+                  {{ itinerary.price | currency:'USD':true:'1.2-2' }}
+                </h4>
               </div>
-              <div class="middle col-sm-7">
-                <div class="row">
-                  <div class="time">{{ flight.startTime }}</div>
-                  <div class="date">{{ flight.startDate | date:'yMMMd' }}</div>
-                  <div class="city">{{ flight.leavingAirport.name }} ({{ flight.leavingAirport.iata }})</div>
-                </div>
-                <div class="row">
-                  <div class="time">{{ flight.endTime }}</div>
-                  <div class="date">{{ flight.endDate | date:'yMMMd' }}</div>
-                  <div class="city">{{ flight.goingAirport.name }} ({{ flight.goingAirport.iata }})</div>
-                </div>
+              <div class="col-sm-2 ml-auto">
+                <button class="btn btn-danger pull-right" (click)="onSelectItinerary(itinerary)">BOOK NOW</button>
               </div>
-              <div class="right col-sm-2">
-                <div class="pull-right">
-                  <div class="type">{{ flight.type }}</div>
-                  <div class="miscell">
-                    <i class="fa fa-television" aria-hidden="true" [ngStyle]="{'opacity': flight.hasTV ? 1 : 0.7}"></i>
-                    <i class="fa fa-wifi" aria-hidden="true" [ngStyle]="{'opacity': flight.hasWifi ? 1 : 0.4}"></i>
-                    <i class="fa fa-plug" aria-hidden="true" [ngStyle]="{'opacity': flight.hasCharger ? 1 : 0.7}"></i>
+            </div>
+            <div class="flights" *ngFor="let flight of itinerary.flights">
+              <div class="flight row">
+                <div class="left col-sm-3">
+                  <img [src]="flight.airlinesLogo" [alt]="flight.airlines" class="pull-left">
+                  <span class="airlines">
+                    {{ flight.airlines }}<br />
+                    {{ flight.flightCode }}
+                  </span>
+                </div>
+                <div class="middle col-sm-7">
+                  <div class="row">
+                    <div class="time">{{ flight.startTime }}</div>
+                    <div class="date">{{ flight.startDate | date:'yMMMd' }}</div>
+                    <div class="city">{{ flight.leavingAirport.name }} ({{ flight.leavingAirport.iata }})</div>
+                  </div>
+                  <div class="row">
+                    <div class="time">{{ flight.endTime }}</div>
+                    <div class="date">{{ flight.endDate | date:'yMMMd' }}</div>
+                    <div class="city">{{ flight.goingAirport.name }} ({{ flight.goingAirport.iata }})</div>
+                  </div>
+                </div>
+                <div class="right col-sm-2">
+                  <div class="pull-right">
+                    <div class="type">{{ flight.type }}</div>
+                    <div class="miscell">
+                      <i class="fa fa-television" aria-hidden="true" [ngStyle]="{'opacity': flight.hasTV ? 1 : 0.7}"></i>
+                      <i class="fa fa-wifi" aria-hidden="true" [ngStyle]="{'opacity': flight.hasWifi ? 1 : 0.4}"></i>
+                      <i class="fa fa-plug" aria-hidden="true" [ngStyle]="{'opacity': flight.hasCharger ? 1 : 0.7}"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
+      
     </div>
   </div>
 </div>

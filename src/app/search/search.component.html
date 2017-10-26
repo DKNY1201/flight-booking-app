@@ -1,10 +1,12 @@
 <div class="container wrapper">
   <h3>Available Itineraries</h3>
   <p><strong>EasyFly.com</strong> offers you with better prices than ever.</p>
-  <div *ngIf="itineraries == null || itineraries.length == 0" class="card no-itineraries">
-    <div class="card-body">
-      <p>There are no available itineraries matching your search criteria.</p>
-      <p><button class="btn btn-success btn-lg" (click)="goBack()">GO BACK</button></p>
+  <div class="row">
+    <div *ngIf="itineraries == null || itineraries.length == 0" class="col-sm-12 card no-itineraries">
+      <div class="card-body">
+        <p>There are no available itineraries matching your search criteria.</p>
+        <p><button class="btn btn-success btn-lg" (click)="goBack()">GO BACK</button></p>
+      </div>
     </div>
   </div>
   <div class="row" *ngIf="itineraries != null && itineraries.length > 0">

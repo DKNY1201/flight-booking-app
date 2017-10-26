@@ -1,0 +1,21 @@
+h3 {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.itinerary {
+  margin-bottom: 32px;
+}
+
+.flights {
+  margin-top: 16px;
+}
+
+.row.header {
+  border-bottom: 1px dotted gray;
+  padding-bottom: 20px;
+}
+
+.time, .date, .city {
+  padding-right: 5px;
+}

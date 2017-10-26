@@ -37,7 +37,8 @@ const schema = mongoose.Schema({
         phoneCode: { type: String, required: true },
         phoneNumber: { type: String, required: true },
         phoneExt: { type: String }
-    }
+    },
+    confirmationCode: { type: String, required: true }
 });
 
 module.exports = mongoose.model('Booking', schema);

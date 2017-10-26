@@ -25,7 +25,8 @@ router.get('/', function (req, res, next) {
                     departureTime: 1,
                     arrival: 1,
                     arrivalDate: 1,
-                    arrivalTime: 1
+                    arrivalTime: 1,
+                    confirmationCode: 1
                 })
                 .exec((err, bookings) => {
                     if (err) {

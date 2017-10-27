@@ -12,11 +12,12 @@ var bookings = require('./routes/bookings');
 var bookingHistories = require('./routes/bookingHistories');
 var airports = require('./routes/airports');
 var itineraries = require('./routes/itineraries');
+var utils = require('./shared/utils');
 
 var app = express();
 
 // Connect database
-mongoose.connect('mongodb://localhost/flight-booking');
+mongoose.connect(utils.MONGO_DB_SERVER_URL);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

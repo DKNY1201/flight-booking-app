@@ -6,7 +6,10 @@ import { Country } from '../models/country.model';
 import { State } from '../models/state.model';
 
 export class Utils {
-  static SERVER_URL = 'http://localhost:3000';
+  static EVN = 'production';
+  static SERVER_URL_LOCALHOST = 'http://localhost:3000/api';
+  static SERVER_URL_CLOUD = 'https://flight-booking-easy-fly.herokuapp.com/api';
+  static SERVER_URL = Utils.EVN === 'development' ? Utils.SERVER_URL_LOCALHOST : Utils.SERVER_URL_CLOUD;
   static SERVER_USER_URL = Utils.SERVER_URL + '/users';
   static SERVER_USER_SIGNIN_URL = Utils.SERVER_USER_URL + '/signin';
   static SERVER_PROFILE_URL = Utils.SERVER_USER_URL + '/profile'

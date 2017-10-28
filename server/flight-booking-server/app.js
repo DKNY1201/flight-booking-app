@@ -42,12 +42,12 @@ app.use(function (req, res, next) {
 app.enable('case sensitive routing');
 app.set('x-powered-by', false);
 
-app.use('/', index);
-app.use('/users', users);
-app.use('/bookings', bookings);
-app.use('/booking-histories', bookingHistories);
-app.use('/airports', airports);
-app.use('/itineraries', itineraries);
+app.use('/api', index);
+app.use('/api/users', users);
+app.use('/api/bookings', bookings);
+app.use('/api/booking-histories', bookingHistories);
+app.use('/api/airports', airports);
+app.use('/api/itineraries', itineraries);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
